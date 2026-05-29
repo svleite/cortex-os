@@ -7,8 +7,7 @@ operam tráfego pago, analytics, automação e conteúdo de ponta a ponta. Pensa
 para founders, agências e operações que querem rodar marketing orientado a dados
 sem reinventar a roda.
 
-Open source e **gratuito**. O valor está na **implementação** (customização e
-consultoria), não no código. Use, modifique e repasse livremente sob MIT.
+Open source e **gratuito**. Sinta-se livre para modificar e repassar livremente sob MIT.
 
 ## Skills
 
@@ -38,9 +37,9 @@ Cada skill traz seu próprio `SKILL.md` (instruções), `README.md` (setup) e
 
 ## Filosofia
 
-Não vendemos o código. O Córtex OS é livre e fica público para qualquer pessoa
+Este código não está à venda. O Córtex OS é livre e fica público para qualquer pessoa
 usar, igual ao que nos inspirou. Quem quiser ajuda para implementar em operações
-específicas, é aí que entra o serviço.
+específicas.
 
 ## Licença e proveniência
 
