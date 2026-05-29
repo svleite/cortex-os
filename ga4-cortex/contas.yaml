@@ -1,0 +1,9 @@
+# GA4 Córtex — Cadastro de clientes
+# O Claude consulta este arquivo para resolver nomes de clientes para property IDs.
+#
+# Exemplo:
+# - nome: Meu Cliente
+#   property_id: "123456789"
+#   site: "exemplo.com.br"
+clientes:
+  # -- Teus clientes abaixo --

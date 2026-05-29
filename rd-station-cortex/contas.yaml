@@ -1,0 +1,13 @@
+# RD Station Córtex — Cadastro de clientes
+# Cada cliente pode ter seu próprio app OAuth2 (client_id + client_secret + tokens).
+# Se omitido, usa as credenciais do .env (conta padrão).
+#
+# Obter credenciais: app.rdstation.com.br/api-credentials → criar app
+clientes:
+    # Usa credenciais do .env (padrão)
+    # Usar credenciais do .env também (mesma app OAuth2)
+    # Se tiver app separado, adicionar abaixo:
+    # client_id: ""
+    # client_secret: ""
+    # access_token: ""
+    # refresh_token: ""

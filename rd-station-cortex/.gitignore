@@ -1,0 +1,16 @@
+# Segredos — NUNCA versionar
+.env
+*.env
+*.env.*
+.env.bak
+*.bak
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Gerados
+reports/
+*.log
+.DS_Store
+node_modules/

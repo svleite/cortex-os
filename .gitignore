@@ -1,0 +1,12 @@
+.env
+*.env
+*.env.*
+.env.bak
+*.bak
+__pycache__/
+*.pyc
+reports/
+*.log
+.DS_Store
+node_modules/
+.playwright-mcp/
