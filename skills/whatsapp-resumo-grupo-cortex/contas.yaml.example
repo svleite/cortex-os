@@ -1,0 +1,20 @@
+# Modelo de config da conta. Copie pra contas.yaml (gitignored) e preencha.
+# Segredos de verdade (senhas, API keys, tokens) vão no app/.env, NÃO aqui.
+
+vps:
+  provedor: ""          # hetzner | digitalocean | oracle | hostinger | ...
+  ip: ""
+  ssh_key: "~/.ssh/whatsapp-resumo.key"
+  usuario: "ubuntu"
+
+whatsapp:
+  numero_dedicado: ""   # número do chip descartável, ex: +55 11 9XXXX-XXXX
+  instancia: "default"
+
+destino: "whatsapp_group"   # whatsapp_group | discord_webhook | discord_bot
+
+# Mapa dos grupos (referência humana; a fonte de verdade é a tabela grp_config no Postgres)
+grupos:
+  - label: "Exemplo Cliente X"
+    group_jid: ""        # ...@g.us (descobrir via /group/fetchAllGroups)
+    target: ""           # webhook URL ou channel ID conforme o destino

@@ -1,0 +1,5 @@
+.env
+contas.yaml
+node_modules/
+app/app/node_modules/
+*.log
