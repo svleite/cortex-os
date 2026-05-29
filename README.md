@@ -56,6 +56,7 @@ re-linka skills/comandos novos que tenham surgido.
 | `comentario-dm-cortex` | Automação de DM no Instagram por comentário |
 | `rd-station-cortex` | Leitura de leads e funil do RD Station Marketing |
 | `whatsapp-resumo-grupo-cortex` | Resume grupos de WhatsApp diariamente com Claude (Evolution API + cron) |
+| `whatsapp-atendimento-cortex` | Bot de atendimento 1:1 no WhatsApp (Cloud API oficial), responde com Claude e faz handoff pra humano |
 
 Cada skill traz `SKILL.md` (instruções) e `README.md` (setup). Credenciais ficam em
 `.env` local de cada skill, **nunca versionado**.
@@ -65,7 +66,7 @@ Cada skill traz `SKILL.md` (instruções) e `README.md` (setup). Credenciais fic
 ```
 cortex-os/
 ├── install.sh        # instala e atualiza (symlink)
-├── skills/           # as 10 skills de execução
+├── skills/           # as 11 skills de execução
 ├── commands/         # o shell do OS (slash-commands)
 ├── templates/        # perfis, skills-modelo, catálogo de ferramentas
 ├── README.md

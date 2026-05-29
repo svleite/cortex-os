@@ -1,0 +1,37 @@
+name = "whatsapp-atendimento"
+main = "src/index.ts"
+compatibility_date = "2025-05-01"
+# account_id = "SEU_ACCOUNT_ID"   # opcional; wrangler usa o login se omitido
+
+# Webhook PÚBLICO da WhatsApp Cloud API (não pode ficar atrás de auth/Access).
+#   GET  /webhook  - verificação Meta (hub.challenge)
+#   POST /webhook  - eventos `messages` + `phone_number_quality_update`
+#
+# Secrets (via `wrangler secret put`):
+#   WA_VERIFY_TOKEN    - string que você inventa pra verificação do webhook
+#   WA_APP_SECRET      - App Secret da Meta (valida X-Hub-Signature-256)
+#   WA_TOKEN           - token de acesso (temp pra teste, System User pra prod)
+#   WA_PHONE_NUMBER_ID - Phone Number ID (número de teste ou produção)
+#   ANTHROPIC_API_KEY  - chave Anthropic do bot
+#   WA_NOTIFY_NUMBERS  - (opcional) números que recebem o lead, ex: "55DDDNNNNNNNNN,55..."
+#   WA_TEAM_NAMES      - (opcional) mapa número->nome, ex: "5519...:Ana,5519...:Bruno"
+#   RESEND_API_KEY     - (opcional) notificação por e-mail
+#   NOTIFY_EMAIL_TO / NOTIFY_EMAIL_FROM / NOTIFY_EMAIL_CC - (opcional)
+
+[[d1_databases]]
+binding = "WA_DB"
+database_name = "whatsapp-atendimento"      # troque + cole o database_id abaixo
+database_id = "COLE_AQUI_O_DATABASE_ID"
+
+[ai]
+binding = "AI"
+
+# Domínio próprio do webhook. Aponte um subdomínio (ex: wa.seudominio.com) no Cloudflare.
+[[routes]]
+pattern = "wa.SEUDOMINIO.com"
+custom_domain = true
+
+[vars]
+ANTHROPIC_MODEL = "claude-haiku-4-5"
+BUSINESS_NAME = "Seu Negócio"
+# WA_TEMPLATE_HANDOFF = "handoff_consultor"   # só se tiver template Utility aprovado

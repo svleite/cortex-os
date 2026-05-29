@@ -1,0 +1,6 @@
+.env
+.dev.vars
+contas.yaml
+node_modules/
+worker/node_modules/
+*.log

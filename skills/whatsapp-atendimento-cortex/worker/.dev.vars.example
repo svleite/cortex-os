@@ -1,0 +1,13 @@
+# Para `wrangler dev` local. Copie pra .dev.vars (gitignored). Em produção use `wrangler secret put`.
+WA_VERIFY_TOKEN=invente-uma-string
+WA_APP_SECRET=app-secret-da-meta
+WA_TOKEN=token-temp-ou-system-user
+WA_PHONE_NUMBER_ID=phone-number-id
+ANTHROPIC_API_KEY=sk-ant-...
+WA_NOTIFY_NUMBERS=55DDDNNNNNNNNN
+WA_TEAM_NAMES=55DDDNNNNNNNNN:Ana
+# opcionais (e-mail):
+RESEND_API_KEY=
+NOTIFY_EMAIL_TO=
+NOTIFY_EMAIL_FROM=
+NOTIFY_EMAIL_CC=

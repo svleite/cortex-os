@@ -1,0 +1,21 @@
+# Modelo de config da conta. Copie pra contas.yaml (gitignored).
+# Segredos de verdade (App Secret, tokens, API keys) vão nos secrets do Worker, NÃO aqui.
+
+negocio:
+  nome: ""              # BUSINESS_NAME
+  dominio_webhook: ""   # ex: wa.seudominio.com
+
+meta:
+  app_id: ""
+  waba_id: ""
+  phone_number_id: ""   # número de teste ou produção
+
+cloudflare:
+  account_id: ""
+  d1_database_name: "whatsapp-atendimento"
+  d1_database_id: ""
+
+time:
+  # números que recebem o lead no handoff (formato 55DDDNNNNNNNNN) + nome
+  - numero: ""
+    nome: ""
