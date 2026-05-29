@@ -55,6 +55,7 @@ re-linka skills/comandos novos que tenham surgido.
 | `gtm-cortex` | Gerencia containers Google Tag Manager via API REST |
 | `comentario-dm-cortex` | Automação de DM no Instagram por comentário |
 | `rd-station-cortex` | Leitura de leads e funil do RD Station Marketing |
+| `whatsapp-resumo-grupo-cortex` | Resume grupos de WhatsApp diariamente com Claude (Evolution API + cron) |
 
 Cada skill traz `SKILL.md` (instruções) e `README.md` (setup). Credenciais ficam em
 `.env` local de cada skill, **nunca versionado**.
@@ -64,7 +65,7 @@ Cada skill traz `SKILL.md` (instruções) e `README.md` (setup). Credenciais fic
 ```
 cortex-os/
 ├── install.sh        # instala e atualiza (symlink)
-├── skills/           # as 9 skills de execução
+├── skills/           # as 10 skills de execução
 ├── commands/         # o shell do OS (slash-commands)
 ├── templates/        # perfis, skills-modelo, catálogo de ferramentas
 ├── README.md
