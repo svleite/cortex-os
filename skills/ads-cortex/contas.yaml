@@ -3,7 +3,7 @@
 # ============================================================================
 #
 # Preencha este arquivo com as contas de cada cliente.
-# O Claude consulta este arquivo automaticamente quando tu mencionares
+# O Claude consulta este arquivo automaticamente quando você mencionar
 # o nome do cliente (ex: "diagnóstico do Meu Cliente").
 #
 # Rode `/ads-cortex setup` pra preencher de forma guiada.
@@ -26,4 +26,4 @@ clientes:
   #     property_id: "XXXXXXXXX"
   #   moeda: "BRL"
   #   notas: ""
-  # -- Teus clientes abaixo --
+  # -- Seus clientes abaixo --

@@ -58,7 +58,7 @@ GA4_CREDENTIALS_PATH=""
 Depois que o `.env` estiver preenchido, o Claude DEVE proativamente guiar o cadastro:
 
 1. Rodar `read.py account` para verificar acesso a propriedade
-2. Perguntar ao usuario: "Qual o site/app principal? Me passa o nome do cliente, e eu preencho o contas.yaml pra ti."
+2. Perguntar ao usuario: "Qual o site/app principal? Me passa o nome do cliente, e eu preencho o contas.yaml para você."
 3. Para cada cliente, perguntar:
    - Nome do cliente
    - Property ID do GA4

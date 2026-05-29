@@ -5,19 +5,19 @@ description: Gerencia containers Google Tag Manager via API REST oficial. Cria, 
 
 # GTM Manager
 
-Skill pra gerenciar Google Tag Manager via API REST. Substitui cliques manuais no painel do GTM por scripts versionados e replicáveis.
+Skill para gerenciar Google Tag Manager via API REST. Substitui cliques manuais no painel do GTM por scripts versionados e replicáveis.
 
 ## Setup (primeira vez)
 
-Autentica via **OAuth user-flow** (não service account). Motivo: o GTM rejeita service accounts criadas em projetos sem Workspace Identity (`Esse e-mail não corresponde a uma Conta do Google`). OAuth user-flow autentica como o próprio usuário — que já tem permissão nos containers — e funciona sempre.
+Autentica via **OAuth user-flow** (não service account). Motivo: o GTM rejeita service accounts criadas em projetos sem Workspace Identity (`Esse e-mail não corresponde a uma Conta do Google`). O OAuth user-flow autentica como o próprio usuário, que já tem permissão nos containers, e funciona sempre.
 
 **Passo 1 — Habilitar Tag Manager API no Google Cloud**
-1. Abre `https://console.cloud.google.com/apis/library/tagmanager.googleapis.com`
-2. Seleciona o projeto Google Cloud que usa pra suas integrações
-3. Clica **Enable**
+1. Abra `https://console.cloud.google.com/apis/library/tagmanager.googleapis.com`
+2. Selecione o projeto Google Cloud que você usa para suas integrações
+3. Clique em **Enable**
 
 **Passo 2 — Configurar `.env` da skill**
-Cria `.claude/skills/gtm-cortex/.env` com o template abaixo. `GTM_CLIENT_ID` e `GTM_CLIENT_SECRET` vêm do OAuth client que você criou no Google Cloud. O `GTM_REFRESH_TOKEN` é gerado no passo 3.
+Crie `.claude/skills/gtm-cortex/.env` com o template abaixo. `GTM_CLIENT_ID` e `GTM_CLIENT_SECRET` vêm do OAuth client que você criou no Google Cloud. O `GTM_REFRESH_TOKEN` é gerado no passo 3.
 
 ```
 # GTM Manager - OAuth user-flow
@@ -32,9 +32,9 @@ GTM_REFRESH_TOKEN=""
 ```bash
 python3 .claude/skills/gtm-cortex/scripts/oauth_setup.py
 ```
-- Vai abrir browser → loga com a conta Google que tem acesso ao GTM
-- Aceita os escopos do Tag Manager
-- Script salva o `refresh_token` no `.env` automaticamente
+- Abre o browser, então faça login com a conta Google que tem acesso ao GTM
+- Aceite os escopos do Tag Manager
+- O script salva o `refresh_token` no `.env` automaticamente
 
 **Passo 4 — Validar**
 ```bash
@@ -46,7 +46,7 @@ Deve listar accounts e containers acessíveis.
 
 Scripts em `scripts/`:
 - `auth.py` — testa autenticação, lista accounts/containers/workspaces
-- `setup_pixel.py` — exemplo de script pra configurar Meta Pixel num container (adaptar pra cada projeto)
+- `setup_pixel.py` — exemplo de script para configurar Meta Pixel num container (adapte para cada projeto)
 
 ## Conceitos GTM
 
@@ -56,12 +56,12 @@ Scripts em `scripts/`:
 - **Tag** → o que dispara (ex: Meta Pixel, GA4, custom HTML)
 - **Trigger** → quando dispara (page view, click, custom event)
 - **Variable** → dado dinâmico (URL, click element, custom JS)
-- **Version** → snapshot do container. Publicar = promover a versão pro container live
+- **Version** → snapshot do container. Publicar = promover a versão para o container live
 
 Tags só funcionam no site real depois de **publicar uma versão**.
 
 ## Segurança
 
-- `.env` (com `GTM_REFRESH_TOKEN`) está no `.gitignore` — nunca commitar
+- `.env` (com `GTM_REFRESH_TOKEN`) está no `.gitignore`, nunca commitar
 - O refresh_token autentica como o usuário Google que rodou o `oauth_setup.py`. Tem acesso a tudo que aquele usuário acessa no GTM.
-- Pra revogar: abre `https://myaccount.google.com/permissions` → encontra o OAuth client → Remove access. Isso invalida o refresh_token; rodar `oauth_setup.py` de novo pra gerar outro.
+- Para revogar: abra `https://myaccount.google.com/permissions`, encontre o OAuth client e clique em Remove access. Isso invalida o refresh_token; rode `oauth_setup.py` de novo para gerar outro.

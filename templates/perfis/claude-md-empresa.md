@@ -42,7 +42,7 @@ Somos [tamanho da equipe] pessoas organizadas em [setores que existem].
 
 ## Tom de voz
 
-[Como a empresa se comunica — interno vs externo pode ser diferente]
+[Como a empresa se comunica (interno e externo podem ser diferentes)]
 
 Evitar: [o que nao combina com a marca]
 

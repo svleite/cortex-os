@@ -86,7 +86,7 @@ Subcomandos do setup.py:
 Depois que o `.env` estiver preenchido e o teste passar, o Claude DEVE proativamente guiar o cadastro de contas:
 
 1. Rodar `read.py accounts` para listar todas as contas acessiveis
-2. Perguntar ao usuario: "Qual a tua principal conta Google Ads? Me passa o nome do cliente, e eu preencho o contas.yaml pra ti."
+2. Perguntar ao usuario: "Qual a sua principal conta Google Ads? Me passe o nome do cliente, que eu preencho o contas.yaml para você."
 3. Para cada cliente, perguntar:
    - Nome do cliente
    - Customer ID (sem hifens)

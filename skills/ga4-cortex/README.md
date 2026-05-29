@@ -28,7 +28,7 @@ GA4_PROPERTY_ID="123456789"
 GA4_CREDENTIALS_PATH="/path/to/service-account.json"
 
 # Opção 2: OAuth2 (compartilhado com google-ads-cortex)
-# Deixe GA4_CREDENTIALS_PATH vazio — busca automaticamente do google-ads-cortex
+# Deixe GA4_CREDENTIALS_PATH vazio: busca automaticamente do google-ads-cortex
 ```
 
 ## Uso
@@ -46,10 +46,10 @@ python3 scripts/realtime.py now
 
 ## Ecossistema Córtex
 
-- **meta-ads-cortex** — Gestão de Meta Ads (Facebook/Instagram)
-- **google-ads-cortex** — Gestão de Google Ads
-- **ga4-cortex** — Consulta de dados GA4 (este)
-- **ads-cortex** — Camada de inteligência (diagnóstico, auditoria, estratégia)
+- **meta-ads-cortex**: Gestão de Meta Ads (Facebook/Instagram)
+- **google-ads-cortex**: Gestão de Google Ads
+- **ga4-cortex**: Consulta de dados GA4 (este)
+- **ads-cortex**: Camada de inteligência (diagnóstico, auditoria, estratégia)
 
 ## Licença e proveniência
 

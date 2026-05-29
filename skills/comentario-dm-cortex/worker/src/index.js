@@ -61,10 +61,10 @@ export default {
         keyword: keyword.toLowerCase().trim(),
         message,
         comment_replies: comment_replies || [
-          "feito, enviado! confere tua DM 📩",
-          "pronto, confere tua DM! 🐀",
+          "feito, enviado! confira sua DM 📩",
+          "pronto, confira sua DM!",
           "mandei lá na DM!",
-          "enviado! olha tua DM 👀",
+          "enviado! veja sua DM 👀",
         ],
         active: true,
         created_at: new Date().toISOString(),

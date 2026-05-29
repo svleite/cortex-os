@@ -28,7 +28,7 @@ npx wrangler --version
 ```
 
 - Se funcionar: "Wrangler instalado. Versao X."
-- Se nao: "Precisa instalar o Wrangler primeiro. Roda isso:"
+- Se nao: "Precisa instalar o Wrangler primeiro. Rode isso:"
   ```bash
   npm install -g wrangler
   ```
@@ -39,7 +39,7 @@ npx wrangler whoami
 ```
 
 - Se logado: "Logado como X. Account ID: Y." — anotar o Account ID.
-- Se nao: "Precisa logar no Cloudflare. Roda isso (vai abrir o navegador):"
+- Se nao: "Precisa logar no Cloudflare. Rode isso (vai abrir o navegador):"
   ```bash
   npx wrangler login
   ```
@@ -47,18 +47,18 @@ npx wrangler whoami
 
 ### Fase 2 — Coletar dados do Instagram
 
-Perguntar: **"Tu ja criou o app no Meta Developer Dashboard?"**
+Perguntar: **"Você ja criou o app no Meta Developer Dashboard?"**
 
 **Se nao:**
-> "Sem problema. Segue esse tutorial pra criar o app e gerar o token:
+> "Sem problema. Siga esse tutorial pra criar o app e gerar o token:
 > a documentação do Córtex OS
 >
-> Quando tiver o token e o Account ID, volta aqui que a gente continua."
+> Quando tiver o token e o Account ID, volte aqui que a gente continua."
 
 Parar aqui e esperar o aluno voltar.
 
 **Se sim:**
-> "Me passa esses 3 dados:
+> "Me passe esses 3 dados:
 > 1. **Token de acesso** (comeca com IGAA...)
 > 2. **Instagram Account ID** (numero tipo 17841...)
 > 3. **Username do Instagram** (ex: @meuinsta)"
@@ -92,7 +92,7 @@ Depois de receber os dados:
 Se o Account ID ja foi capturado do `npx wrangler whoami` na Fase 1, pular pra Fase 4.
 
 Se nao conseguiu extrair:
-> "Me passa teu Cloudflare Account ID. Se nao sabe onde achar: a documentação do Córtex OS
+> "Me passe o seu Cloudflare Account ID. Se nao sabe onde achar: a documentação do Córtex OS
 
 Salvar no `.env` como `CLOUDFLARE_ACCOUNT_ID`.
 
@@ -149,17 +149,17 @@ Atualizar o `.env` com `WORKER_URL="https://..."`.
 
 Mostrar ao aluno:
 
-> "Agora vai no Meta Developer Dashboard ([developers.facebook.com](https://developers.facebook.com/)), abre teu app, e faz isso:
+> "Agora va no Meta Developer Dashboard ([developers.facebook.com](https://developers.facebook.com/)), abra o seu app, e faca isso:
 >
-> 1. Na sidebar, clica em **Webhooks**
-> 2. Clica em **Add Subscription** > seleciona **Instagram**
-> 3. Cola esses dados:
+> 1. Na sidebar, clique em **Webhooks**
+> 2. Clique em **Add Subscription** > selecione **Instagram**
+> 3. Cole esses dados:
 >    - **Callback URL:** `https://SEU-WORKER.workers.dev/webhook`
 >    - **Verify Token:** `TOKEN_GERADO`
-> 4. Clica em **Verify and Save**
-> 5. Na lista de campos, ativa **comments** (clica em Subscribe)
+> 4. Clique em **Verify and Save**
+> 5. Na lista de campos, ative **comments** (clique em Subscribe)
 >
-> Me avisa quando terminar."
+> Me avise quando terminar."
 
 Substituir os valores reais na mensagem.
 
@@ -171,9 +171,9 @@ Depois que o aluno confirmar que configurou o webhook:
 curl -s "WORKER_URL/webhook?hub.mode=subscribe&hub.verify_token=VERIFY_TOKEN&hub.challenge=teste_ok_123"
 ```
 
-- Se retornar `teste_ok_123`: "Tudo certo! Teu Worker ta no ar e respondendo."
-- Se retornar 403: "O verify token nao bateu. Verifica se colou o token certo no Meta."
-- Se der erro de conexao: "O Worker nao ta acessivel. Verifica se o deploy funcionou com `npx wrangler deploy`."
+- Se retornar `teste_ok_123`: "Tudo certo. O seu Worker esta no ar e respondendo."
+- Se retornar 403: "O verify token nao bateu. Verifique se colou o token certo no Meta."
+- Se der erro de conexao: "O Worker nao esta acessivel. Verifique se o deploy funcionou com `npx wrangler deploy`."
 
 ### Fase 7 — Cadastrar conta (contas.yaml)
 
@@ -190,9 +190,9 @@ contas:
 ```
 
 Mensagem final:
-> "Setup completo! Tua automacao de DM ta funcionando. Agora e so criar automacoes pros teus posts.
+> "Setup completo. A sua automacao de DM esta funcionando. Agora e so criar automacoes pros seus posts.
 >
-> Exemplos do que tu pode pedir:
+> Exemplos do que voce pode pedir:
 > - 'cria automacao pro post X, keyword LINK, mensagem com o link do curso'
 > - 'lista minhas automacoes'
 > - 'remove automacao do post X'"
@@ -236,7 +236,7 @@ O usuario vai dizer algo como:
        "media_id": "...",
        "keyword": "...",
        "message": "...",
-       "comment_replies": ["feito, enviado! confere tua DM :envelope_with_arrow:", "pronto, confere tua DM! :rat:", "mandei la na DM!", "enviado! olha tua DM :eyes:"],
+       "comment_replies": ["feito, enviado! confira sua DM :envelope_with_arrow:", "pronto, confira sua DM!", "mandei la na DM!", "enviado! veja sua DM :eyes:"],
        "label": "descricao curta"
      }'
    ```

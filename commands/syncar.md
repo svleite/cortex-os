@@ -32,8 +32,8 @@ Diga:
 > Pra conectar, você precisa de um repositório no GitHub. Se ainda não criou:
 > 1. Acesse github.com/new
 > 2. Crie um repositório (pode ser privado, nome sugerido: `meu-negocio` ou `workspace`)
-> 3. Não inicialize com README — deixa vazio
-> 4. Me passa o link do repositório criado (ex: https://github.com/seunome/workspace)"
+> 3. Não inicialize com README, deixe vazio
+> 4. Me passe o link do repositório criado (ex: https://github.com/seunome/workspace)"
 
 Após receber o link, configure e envie:
 
@@ -86,12 +86,12 @@ Se o push falhar (credenciais, conexão, etc.), mostre o erro de forma simples:
 > - Sem conexão com internet
 > - Precisa configurar autenticação no GitHub (token ou SSH)
 >
-> Se quiser resolver agora, me diz e eu te ajudo passo a passo."
+> Se quiser resolver agora, me diga que eu ajudo você passo a passo."
 
 ---
 
 ## Regras
 
 - Nunca commitar `.env`, `.env.local` ou qualquer arquivo com chaves secretas
-- Tom direto — não explica git em detalhes a não ser que o usuário pergunte
-- Se der erro, sempre mostrar o que fazer a seguir — nunca só mostrar o erro
+- Tom direto: não explique git em detalhes a não ser que o usuário pergunte
+- Se der erro, sempre mostre o que fazer a seguir, nunca só mostre o erro

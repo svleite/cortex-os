@@ -14,10 +14,10 @@ Skill de automacao de DM no Instagram para Claude Code. Quando alguem comenta um
 cp -r . ~/.claude/skills/comentario-dm-cortex/
 
 # 2. Rodar o setup guiado
-# No Claude Code, digita: /comentario-dm-cortex setup
+# No Claude Code, digite: /comentario-dm-cortex setup
 ```
 
-O setup guiado cuida de tudo: instalar wrangler, configurar o Cloudflare, fazer o deploy e conectar o webhook. Tu so precisa ter criado o app no Meta Developer Dashboard antes.
+O setup guiado cuida de tudo: instalar wrangler, configurar o Cloudflare, fazer o deploy e conectar o webhook. Você só precisa ter criado o app no Meta Developer Dashboard antes.
 
 ### Pre-requisitos
 
@@ -28,7 +28,7 @@ O setup guiado cuida de tudo: instalar wrangler, configurar o Cloudflare, fazer 
 
 ## Uso
 
-Depois de instalada, a skill e ativada automaticamente quando tu fala com o Claude Code sobre automacao de DM. Exemplos:
+Depois de instalada, a skill e ativada automaticamente quando você fala com o Claude Code sobre automacao de DM. Exemplos:
 
 - "cria automacao pro post X, keyword LINK, mensagem com o link do curso"
 - "lista minhas automacoes"
@@ -37,12 +37,12 @@ Depois de instalada, a skill e ativada automaticamente quando tu fala com o Clau
 
 ### Criar automacao
 
-Tu passa a URL do post, a keyword e a mensagem. O Claude converte a URL pro media_id, registra no Worker e confirma.
+Você passa a URL do post, a keyword e a mensagem. O Claude converte a URL pro media_id, registra no Worker e confirma.
 
 ```
 > cria automacao pro instagram.com/p/ABC123
 > keyword: LINK
-> mensagem: "Opa! Aqui o link que tu pediu: https://exemplo.com"
+> mensagem: "Aqui está o link que você pediu: https://exemplo.com"
 ```
 
 ### Retroativo
@@ -53,7 +53,7 @@ Envia DMs pra quem ja comentou a keyword em posts antigos (antes da automacao ex
 > manda retroativo pros comentarios do post instagram.com/p/ABC123, keyword LINK
 ```
 
-O Claude busca os comentarios, mostra a lista e pede tua confirmacao antes de enviar.
+O Claude busca os comentarios, mostra a lista e pede a sua confirmacao antes de enviar.
 
 ## Estrutura
 
@@ -82,13 +82,13 @@ Essa skill foi **vibe-codada com Claude Code** a partir da documentacao oficial 
 
 **Pontos importantes antes de usar:**
 
-- **Use por tua conta e risco.** A gente nao garante que o uso dessa skill nao vai resultar em restricoes, bloqueios ou qualquer problema na tua conta do Instagram. O Meta tem politicas proprias sobre automacao e pode mudar as regras a qualquer momento.
-- **Leia as politicas do Instagram.** Antes de usar qualquer automacao, entende os [Termos de Uso da Plataforma Instagram](https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/overview#terms-and-policies) e as regras de rate limiting. A skill inclui delays e boas praticas, mas isso nao e garantia de nada.
-- **Revisa o codigo.** Essa skill envia mensagens pela tua conta do Instagram. Antes de usar, olha o codigo do Worker (`worker/src/index.js`) pra entender o que cada operacao faz. E open source justamente pra isso.
-- **Token tem validade.** O token de acesso do Instagram expira a cada 60 dias. Quando expirar, gera um novo e atualiza no Worker.
+- **Use por sua conta e risco.** A gente nao garante que o uso dessa skill nao vai resultar em restricoes, bloqueios ou qualquer problema na sua conta do Instagram. O Meta tem politicas proprias sobre automacao e pode mudar as regras a qualquer momento.
+- **Leia as politicas do Instagram.** Antes de usar qualquer automacao, entenda os [Termos de Uso da Plataforma Instagram](https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/overview#terms-and-policies) e as regras de rate limiting. A skill inclui delays e boas praticas, mas isso nao e garantia de nada.
+- **Revise o codigo.** Essa skill envia mensagens pela sua conta do Instagram. Antes de usar, olhe o codigo do Worker (`worker/src/index.js`) pra entender o que cada operacao faz. E open source justamente pra isso.
+- **Token tem validade.** O token de acesso do Instagram expira a cada 60 dias. Quando expirar, gere um novo e atualize no Worker.
 - **Sem garantia de funcionamento.** A API do Instagram muda com frequencia. Algo que funciona hoje pode quebrar amanha.
 
-Em resumo: e uma ferramenta pratica, mas tu es o responsavel pelo que acontece na tua conta. Usa com consciencia e nao faz nada que tu nao faria manualmente.
+Em resumo: e uma ferramenta pratica, mas você e o responsavel pelo que acontece na sua conta. Use com consciencia e nao faca nada que você nao faria manualmente.
 
 ## Criado por
 

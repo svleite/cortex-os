@@ -41,7 +41,7 @@ Avise o usuário:
 
 ```
 Parece que o sistema ainda não foi configurado.
-Rode /setup pra eu aprender sobre o seu negócio — leva uns 5 minutos.
+Rode /setup para que eu aprenda sobre o seu negócio: leva uns 5 minutos.
 Depois de configurado, o /iniciar vai funcionar completo.
 ```
 

@@ -1,6 +1,6 @@
 # [Nome da Agência] — Claude Code OS
 
-> Template pra agências e freelancers que atendem clientes.
+> Template para agências e freelancers que atendem clientes.
 > Preencha os campos com colchetes e delete este aviso.
 
 ## O que é esse workspace
@@ -8,13 +8,13 @@
 [Descreve em uma ou duas frases o que essa pasta representa. Ex: "Workspace de operações da agência. Aqui ficam todos os clientes, propostas e entregas."]
 
 **Estrutura de pastas:**
-- `_contexto/` — memória do sistema (não apagar)
-- `clientes/` — um subdiretório por cliente
-- `briefings/` — briefings recebidos
-- `propostas/` — propostas em andamento e enviadas
-- `conteudo/` — produção de conteúdo
-- `dados/` — arquivos para análise (CSV, PDF, etc)
-- `tarefas.md` — lista de tarefas corrente
+- `_contexto/`: memória do sistema (não apagar)
+- `clientes/`: um subdiretório por cliente
+- `briefings/`: briefings recebidos
+- `propostas/`: propostas em andamento e enviadas
+- `conteudo/`: produção de conteúdo
+- `dados/`: arquivos para análise (CSV, PDF, etc)
+- `tarefas.md`: lista de tarefas corrente
 
 ## Sobre o negócio
 

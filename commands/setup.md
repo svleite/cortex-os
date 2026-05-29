@@ -8,7 +8,7 @@ description: >
   ou ausente, ou quando disser "configurar o sistema", "primeira vez", "setup".
 ---
 
-# /setup — Configuração do Sistema
+# /setup: Configuração do Sistema
 
 ## Verificação inicial
 
@@ -23,14 +23,14 @@ Antes de qualquer coisa, verifique se `_contexto/empresa.md` existe e tem conte�
 
 Comece com uma mensagem curta de boas-vindas:
 
-> "Boa. Vou te fazer algumas perguntas pra configurar o sistema pro seu negócio. Responde com calma — quanto mais específico, melhor o sistema vai trabalhar pra ti."
+> "Vou fazer algumas perguntas para configurar o sistema pro seu negócio. Responda com calma; quanto mais específico, melhor o sistema vai trabalhar para você."
 
 Faça as perguntas em sequência, uma por vez, em conversa natural. Não liste todas de uma vez. Espere a resposta de cada uma antes de ir pra próxima.
 
 ### Pergunta 1
 "Qual é o seu nome e o nome do seu negócio?"
 
-### Pergunta 2 — Verificação de histórico
+### Pergunta 2: Verificação de histórico
 
 "Você já usa o Claude Code há algum tempo, ou é a primeira vez?"
 
@@ -43,7 +43,7 @@ Faça as perguntas em sequência, uma por vez, em conversa natural. Não liste t
 
 **Se for a primeira vez:** perguntar:
 
-> "Você usa outro assistente de IA com frequência — ChatGPT, Claude na web, Gemini? Se sim, consigo pegar o contexto de lá pra não precisar responder tudo do zero."
+> "Você usa outro assistente de IA com frequência (ChatGPT, Claude na web, Gemini)? Se sim, consigo pegar o contexto de lá pra não precisar responder tudo do zero."
 
 - **Se não usa outro assistente:** continua normalmente pra Pergunta 3.
 - **Se usa:** executar o bloco **"Importação de contexto de outro assistente"** abaixo antes de continuar.
@@ -53,8 +53,8 @@ Faça as perguntas em sequência, uma por vez, em conversa natural. Não liste t
 #### Bloco: Carregamento de contexto existente (Claude Code anterior)
 
 Tentar ler, nessa ordem:
-1. `~/.claude/CLAUDE.md` — CLAUDE.md global (se existir)
-2. Arquivos de memória em `~/.claude/projects/` — procurar por arquivos relevantes (empresa, preferências, contexto)
+1. `~/.claude/CLAUDE.md`: CLAUDE.md global (se existir)
+2. Arquivos de memória em `~/.claude/projects/`: procurar por arquivos relevantes (empresa, preferências, contexto)
 
 Com o que encontrar, montar um resumo e apresentar ao usuário:
 
@@ -72,7 +72,7 @@ Aguardar confirmação ou correções do usuário. Após confirmar, **pular as p
 
 Se não encontrar nada relevante, informar:
 
-> "Não encontrei contexto salvo de outros projetos. Vamos configurar do zero — leva poucos minutos."
+> "Não encontrei contexto salvo de outros projetos. Vamos configurar do zero; leva poucos minutos."
 
 E continuar normalmente pra Pergunta 3.
 
@@ -136,20 +136,20 @@ Aguardar o usuário colar a resposta. Com o que vier:
 ### Pergunta 4
 "Você atende clientes externos ou usa o sistema principalmente pro seu próprio negócio?"
 
-*(Ou os dois — pode responder livremente)*
+*(Ou os dois, pode responder livremente)*
 
-### Pergunta 4.5 — Foco atual
+### Pergunta 4.5: Foco atual
 
 "E qual é o seu principal foco agora? O que você tá tentando fazer ou resolver nos próximos meses?"
 
-*(Pode ser um lançamento, crescer um canal, fechar mais clientes, organizar a operação, aprender uma ferramenta — qualquer coisa que esteja na cabeça)*
+*(Pode ser um lançamento, crescer um canal, fechar mais clientes, organizar a operação, aprender uma ferramenta: qualquer coisa que esteja na cabeça)*
 
 ### Pergunta 5
 "Quais ferramentas você usa hoje no trabalho? Cita as principais."
 
-*(Exemplos: Notion, Google Drive, Canva, Gmail, Meta Ads, Google Ads, Figma, Slack, WhatsApp Business — qualquer uma que use com frequência)*
+*(Exemplos: Notion, Google Drive, Canva, Gmail, Meta Ads, Google Ads, Figma, Slack, WhatsApp Business: qualquer uma que use com frequência)*
 
-### Pergunta 6 — Identidade visual
+### Pergunta 6: Identidade visual
 
 "Sua marca tem identidade visual? Se sim, como prefere compartilhar?"
 
@@ -175,7 +175,7 @@ Apresentar as opções de forma natural, não como lista formal:
 
 **Se ainda não tiver definido:**
 - Preencher o `marca/design-guide.md` com campos em branco e orientações pra preencher depois
-- Mencionar brevemente: "Sem problema — você preenche quando tiver. O Claude vai usar um visual neutro até lá."
+- Mencionar brevemente: "Sem problema, você preenche quando tiver. O Claude vai usar um visual neutro até lá."
 
 **Logo (perguntar em todos os casos acima):**
 
@@ -203,14 +203,14 @@ Após resolver cores e estilo, perguntar:
 Com todas as respostas, detecte o perfil principal:
 
 **Perfis possíveis:**
-- `agencia` — atende múltiplos clientes, tem processos de entrega
-- `freelancer` — trabalha solo, atende clientes, vende serviço próprio
-- `solopreneur` — negócio próprio sem foco em clientes, mais em audiência/produto
-- `criador` — foco em conteúdo, canal, audiência
-- `empresa` — pequena/média empresa com equipe organizada por setores (marketing, comercial, RH, etc.)
-- `profissional-clt` — usa pra produtividade pessoal e carreira
+- `agencia`: atende múltiplos clientes, tem processos de entrega
+- `freelancer`: trabalha solo, atende clientes, vende serviço próprio
+- `solopreneur`: negócio próprio sem foco em clientes, mais em audiência/produto
+- `criador`: foco em conteúdo, canal, audiência
+- `empresa`: pequena/média empresa com equipe organizada por setores (marketing, comercial, RH, etc.)
+- `profissional-clt`: usa pra produtividade pessoal e carreira
 
-*(Um perfil pode ter características de outro — use o que melhor descreve o uso principal)*
+*(Um perfil pode ter características de outro; use o que melhor descreve o uso principal)*
 
 ---
 
@@ -301,7 +301,7 @@ Não perguntar se a correção for óbvia de contexto imediato (ex: "na verdade 
 
 Ao terminar uma tarefa que mudou algo relevante no projeto (novo cliente, nova skill, mudança de foco, novo processo, ferramenta instalada, estrutura de pastas alterada), perguntar:
 
-> "Isso mudou algo no teu contexto. Quer que eu atualize os arquivos de memória?"
+> "Isso mudou algo no seu contexto. Quer que eu atualize os arquivos de memória?"
 
 Se sim, identificar o que precisa atualizar:
 
@@ -417,10 +417,10 @@ Ler os templates de perfil disponíveis em `~/.cortex-os/templates/perfis/` pra 
 > ```
 >
 > Mas também tenho outros modelos se preferir:
-> - **Por cliente** (agência/freelancer) — uma pasta por cliente com briefing e proposta
-> - **Por tipo de conteúdo** (solopreneur/criador) — organizado por o que você produz
-> - **Por setor** (empresa) — uma pasta por área (marketing, comercial, financeiro, RH)
-> - **Por projeto** (profissional) — organizado por projetos e reuniões
+> - **Por cliente** (agência/freelancer): uma pasta por cliente com briefing e proposta
+> - **Por tipo de conteúdo** (solopreneur/criador): organizado por o que você produz
+> - **Por setor** (empresa): uma pasta por área (marketing, comercial, financeiro, RH)
+> - **Por projeto** (profissional): organizado por projetos e reuniões
 >
 > Quer usar esse que sugeri, trocar por outro, ou montar uma estrutura personalizada?"
 
@@ -514,15 +514,15 @@ Após gerar todos os arquivos, envie uma mensagem de encerramento:
 > "[Nome], seu sistema tá configurado.
 >
 > Aqui está o que foi criado:
-> - CLAUDE.md — o Claude agora sabe quem você é, como trabalha e onde fica cada coisa
-> - _contexto/ — negócio, preferências e foco atual salvos
-> - marca/design-guide.md — identidade visual [preenchida / pronta pra preencher]
+> - CLAUDE.md: o Claude agora sabe quem você é, como trabalha e onde fica cada coisa
+> - _contexto/: negócio, preferências e foco atual salvos
+> - marca/design-guide.md: identidade visual [preenchida / pronta pra preencher]
 > - Estrutura de pastas pro seu perfil de [perfil detectado]
 > - [N] MCPs instalados / [N] anotados pra instalar depois
 >
 > **Duas coisas importantes antes de continuar:**
 >
-> 1. Se você tiver chaves de API (como a da Anthropic), guarde sempre num arquivo chamado `.env` — ele já está protegido e nunca vai ser enviado pro GitHub por engano.
+> 1. Se você tiver chaves de API (como a da Anthropic), guarde sempre num arquivo chamado `.env`; ele já está protegido e nunca vai ser enviado pro GitHub por engano.
 >
 > 2. Para não perder seu trabalho, conecte esse workspace ao GitHub rodando `/syncar`. Leva 2 minutos e depois o sistema salva automaticamente.
 >
@@ -533,7 +533,7 @@ Após gerar todos os arquivos, envie uma mensagem de encerramento:
 ## Regras
 
 - Tom direto e humano, sem excesso de entusiasmo
-- Não use listas com bullet points nas perguntas — faça em conversa
-- Se o usuário der respostas vagas, faz uma pergunta de acompanhamento antes de continuar
-- Gera os arquivos todos de uma vez no final, não um a um durante as perguntas
-- Após gerar, mostra a mensagem final resumida — não lista cada linha de cada arquivo
+- Não use listas com bullet points nas perguntas, faça em conversa
+- Se o usuário der respostas vagas, faça uma pergunta de acompanhamento antes de continuar
+- Gere os arquivos todos de uma vez no final, não um a um durante as perguntas
+- Após gerar, mostre a mensagem final resumida, não liste cada linha de cada arquivo

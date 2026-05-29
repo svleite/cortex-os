@@ -19,11 +19,11 @@ Antes de criar qualquer carrossel, checar 5 coisas. Se tudo estiver OK, pular di
 
 Ler `marca/design-guide.md`. Se os campos estiverem vazios (template padrão):
 
-> "Pra criar o carrossel com a tua cara, preciso de algumas coisas. Me conta:
-> 1. Qual a cor principal da tua marca? (hex tipo #FF5C35, ou descreve: "azul escuro", "laranja quente")
-> 2. Tem preferência de fonte? (Se não, eu escolho uma boa pro teu estilo)
+> "Para criar o carrossel com a sua cara, preciso de algumas coisas. Me conte:
+> 1. Qual a cor principal da sua marca? (hex tipo #FF5C35, ou descreva: "azul escuro", "laranja quente")
+> 2. Tem preferência de fonte? (Se não, eu escolho uma boa pro seu estilo)
 > 3. Estilo geral: clean/minimalista, bold/impactante, editorial/elegante, ou outro?
-> 4. Tem logo? Se sim, joga o arquivo na pasta `marca/` e me diz o nome"
+> 4. Tem logo? Se sim, coloque o arquivo na pasta `marca/` e me diga o nome"
 
 Com as respostas, preencher `marca/design-guide.md`. A partir da cor principal, gerar variações claras e escuras pra usar nos slides (uma versão mais clara pro destaque sutil, uma mais escura pra fundos). Escolher um fundo escuro e um fundo claro que combinem com o tom da cor (cores quentes pedem fundos mais aconchegantes, cores frias pedem fundos mais neutros).
 
@@ -33,7 +33,7 @@ Se o usuário disser "não sei" ou "escolhe pra mim": usar padrão limpo (fundo 
 
 Ler `references/design-carrossel.md`. Se o arquivo contiver a linha `<!-- estilo: pendente -->`, significa que o usuário ainda não escolheu o estilo. Perguntar:
 
-> "Como tu quer o visual dos slides?
+> "Como você quer o visual dos slides?
 > 1. **Minimalista:** limpo, muito espaço em branco, layouts simples. Elegante e clean
 > 2. **Elaborado:** texturas, composições ousadas, layouts variados. Impactante e marcante no feed
 > 3. **Tweet:** simula um tweet/post do Twitter. Fundo branco, foto de perfil e @handle no topo, texto grande embaixo. Ultra-limpo e familiar"
@@ -46,10 +46,10 @@ Conforme a resposta, **substituir o conteúdo inteiro** de `references/design-ca
 Se `design-carrossel.md` NÃO contiver `<!-- estilo: pendente -->`, o estilo já foi escolhido. Não perguntar de novo.
 
 Se escolher **tweet**, perguntar também:
-> "Pra o estilo tweet, preciso de algumas coisas:
-> 1. Teu nome (como quer que apareça no slide)
-> 2. Teu @ do Instagram
-> 3. Uma foto de perfil (joga na pasta `marca/foto-perfil.jpg`). Se não tiver agora, uso as iniciais do teu nome
+> "Para o estilo tweet, preciso de algumas coisas:
+> 1. Seu nome (como quer que apareça no slide)
+> 2. Seu @ do Instagram
+> 3. Uma foto de perfil (coloque na pasta `marca/foto-perfil.jpg`). Se não tiver agora, uso as iniciais do seu nome
 > 4. Quer o badge azul de verificado ao lado do nome? (sim/não)"
 
 Salvar essas informações na seção `## Perfil do autor` em `marca/design-guide.md` pra não perguntar de novo:
@@ -71,11 +71,11 @@ O usuário pode trocar depois a qualquer momento: "muda o estilo do carrossel pr
 
 Ler `_contexto/preferencias.md`. Se estiver vazio:
 
-> "Como tu prefere que eu escreva os textos dos slides?
+> "Como você prefere que eu escreva os textos dos slides?
 > - Informal e direto (papo de colega)?
 > - Profissional mas acessível?
 > - Técnico e denso?
-> E tem algo que te incomoda em texto de IA? (ex: travessões, emojis, frases curtas demais)"
+> E tem algo que incomoda você em texto de IA? (ex: travessões, emojis, frases curtas demais)"
 
 Salvar em `_contexto/preferencias.md`.
 
@@ -83,13 +83,13 @@ Salvar em `_contexto/preferencias.md`.
 
 Ler `_contexto/empresa.md`. Se estiver vazio, avisar:
 
-> "Ajuda se eu souber sobre o teu negócio e público pra escrever melhor. Roda /setup pra configurar, ou me conta rápido: o que tu faz e pra quem."
+> "Ajuda se eu souber sobre o seu negócio e público pra escrever melhor. Rode /setup pra configurar, ou me conte rápido: o que você faz e pra quem."
 
 Se o usuário responder rápido (sem rodar /setup), anotar o essencial em `_contexto/empresa.md`.
 
 ### 5. Playwright
 
-Verificar se Playwright tá instalado:
+Verificar se Playwright está instalado:
 
 ```bash
 npx playwright screenshot --help 2>/dev/null && echo "OK" || echo "INSTALAR"
@@ -101,7 +101,7 @@ Se precisar instalar:
 npx playwright install chromium
 ```
 
-Avisar o usuário que tá instalando (demora uns 30s na primeira vez).
+Avisar o usuário que está instalando (demora uns 30s na primeira vez).
 
 ---
 
@@ -133,14 +133,14 @@ O usuário fornece:
    - **Links do X/Twitter (x.com ou twitter.com):** substituir o domínio por `api.fxtwitter.com` e usar WebFetch (ex: `https://x.com/user/status/123` vira `https://api.fxtwitter.com/user/status/123`). Funciona também pra `x.com/i/status/ID`. Retorna texto, mídia e links do tweet sem precisar de login
    - **Links do Instagram:** WebFetch não funciona. Avisar o usuário pra copiar o texto do post e colar direto
    - **Links de YouTube:** se tiver a skill `/yt-transcript` ou `/transcribe`, usar. Se não, tentar WebFetch na página
-4. **Se o usuário mencionar algo que tu não conhece ou não tem certeza do que é** (nome de produto, ferramenta, evento, pessoa, termo técnico): pesquisar antes de escrever. Usar WebSearch, WebFetch ou qualquer ferramenta disponível. Nunca chutar, corrigir o usuário ou assumir que ele errou. Se ele disse "OpenClaw", vai atrás pra descobrir o que é OpenClaw. O usuário sabe do que tá falando, tu é que pode não saber
+4. **Se o usuário mencionar algo que você não conhece ou não tem certeza do que é** (nome de produto, ferramenta, evento, pessoa, termo técnico): pesquisar antes de escrever. Usar WebSearch, WebFetch ou qualquer ferramenta disponível. Nunca chutar, corrigir o usuário ou assumir que ele errou. Se ele disse "OpenClaw", vá atrás pra descobrir o que é OpenClaw. O usuário sabe do que está falando, você é que pode não saber
 5. Definir o ângulo do carrossel: educacional, oportunidade, contrário, provocativo ou inspiracional
 
 5. **Briefing rápido** — perguntar ao usuário (numa mensagem só):
-   > "Antes de escrever, me confirma:
+   > "Antes de escrever, me confirme:
    > - Quantos slides? (padrão: 8-10)
-   > - Vai querer imagem na capa ou dentro dos slides? Se sim, quantas imagens tu tem?
-   >   - Se tiver imagens: joga na pasta `conteudo/carrosseis/[tema]/imagens/` e me diz os nomes
+   > - Vai querer imagem na capa ou dentro dos slides? Se sim, quantas imagens você tem?
+   >   - Se tiver imagens: coloque na pasta `conteudo/carrosseis/[tema]/imagens/` e me diga os nomes
    >   - Se não tiver: faço um design visual que funciona bem sem foto
    >   - Se quiser, posso gerar imagens por IA (ver seção Geração de Imagens abaixo)
    > - CTA do último slide? (ex: 'segue pra mais', 'link na bio', 'comenta X')
@@ -162,7 +162,7 @@ O usuário fornece:
    >
    > **Provas:** [2-3 evidências concretas]
    >
-   > **Virada:** [o que muda pra quem tá lendo]
+   > **Virada:** [o que muda pra quem está lendo]
    >
    > **5 opções de capa:**
    > A: [título] / [subtítulo]
@@ -171,11 +171,11 @@ O usuário fornece:
    > D: [título] / [subtítulo]
    > E: [título] / [subtítulo]
    >
-   > Qual capa tu prefere? E a narrativa tá no caminho certo ou quer ajustar algo?
+   > Qual capa você prefere? E a narrativa está no caminho certo ou quer ajustar algo?
 
    **CHECKPOINT 1:** Esperar o usuário escolher a capa e aprovar a direção narrativa. Se ele quiser mudar o ângulo, ajustar a espinha dorsal antes de escrever. Só avançar quando a narrativa estiver alinhada.
 
-   Cada opção de capa deve ter título (max 8 palavras) + subtítulo próprio. Nunca o mesmo subtítulo pra todas. Precisa criar tensão ou curiosidade. Nunca descritivo ("5 dicas de X"), sempre com ângulo ("por que X não funciona como tu pensa").
+   Cada opção de capa deve ter título (max 8 palavras) + subtítulo próprio. Nunca o mesmo subtítulo pra todas. Precisa criar tensão ou curiosidade. Nunca descritivo ("5 dicas de X"), sempre com ângulo ("por que X não funciona como você pensa").
 
 7. **Escrever os slides com base na espinha dorsal e capa aprovadas.** Seguir o arco narrativo:
 
@@ -187,7 +187,7 @@ O usuário fornece:
 
    **Slides 5-7 (Provas e aprofundamento):** Um ponto por slide, cada um aprofundando um aspecto diferente. Cada slide deve adicionar uma camada nova, não repetir o anterior com palavras diferentes. Se o slide 5 apresenta um dado, o slide 6 contradiz ou expande, o slide 7 conecta com a realidade do leitor.
 
-   **Slide 8-9 (Virada):** Aqui o carrossel muda de tom. Não é resumo do que foi dito. É uma virada genuína: "e o que isso significa pra quem tá lendo?" ou "o que muda a partir de agora?". Conexão prática e específica, não genérica.
+   **Slide 8-9 (Virada):** Aqui o carrossel muda de tom. Não é resumo do que foi dito. É uma virada genuína: "e o que isso significa pra quem está lendo?" ou "o que muda a partir de agora?". Conexão prática e específica, não genérica.
 
    **Slide final (CTA):** Chamada pra ação + menção ao canal/marca. Curto. O CTA precisa ter uma frase-ponte que conecta o conteúdo do carrossel com a ação (não um "segue pra mais" solto).
 
@@ -203,7 +203,7 @@ O usuário fornece:
 
 **Teste de qualidade (rodar mentalmente antes de entregar):**
 - **Teste da leitura em voz alta:** cada slide soa como alguém falando ou como texto gerado por IA?
-- **Teste da substituição:** se trocar o tema por outro qualquer e o texto ainda funcionar, tá genérico demais. Reescrever com especificidade
+- **Teste da substituição:** se trocar o tema por outro qualquer e o texto ainda funcionar, está genérico demais. Reescrever com especificidade
 - **Teste da promessa:** o que o hook prometeu foi entregue antes do CTA?
 - **Teste do "e daí?":** cada slide responde "e daí?" do anterior. Se um slide não avança a narrativa, cortar
 
@@ -211,9 +211,9 @@ O usuário fornece:
 - Sem estruturas binárias: "não é X, é Y" ou "X diminui, Y acelera" (parece IA)
 - Sem cacoetes: "e isso muda tudo", "no fim das contas", "a pergunta que fica", "de forma X", "cada vez mais", "em um mundo onde", "é preciso", "simplesmente", "basicamente"
 - Sem jargão corporativo: "ecossistema", "mindset", "sinergia", "potencializar", "alavancagem", "disruptivo"
-- Sem aberturas genéricas: "hoje vamos falar sobre", "neste carrossel tu vai", "muitas pessoas perguntam"
+- Sem aberturas genéricas: "hoje vamos falar sobre", "neste carrossel você vai", "muitas pessoas perguntam"
 - Sem fechamentos fracos: "continue no próximo", "swipe pra ver mais", "não para por aí"
-- Sem CTA cordial: "espero que tenha gostado", "se esse conteúdo te ajudou", "não esqueça de seguir"
+- Sem CTA cordial: "espero que tenha gostado", "se esse conteúdo ajudou você", "não esqueça de seguir"
 - Sem travessões (—) a menos que o preferencias.md diga o contrário
 - Se soar como template, redação de vestibular ou post genérico de Instagram: reescrever do zero
 
@@ -302,7 +302,7 @@ curl -L "https://image.pollinations.ai/prompt/modern%20office%20desk%20minimal%2
 1. Perguntar ao usuário o que quer na imagem (ex: "mesa de trabalho com notebook", "pessoa usando celular")
 2. Gerar com Pollinations, salvar em `conteudo/carrosseis/[tema]/imagens/`
 3. Mostrar pro usuário aprovar antes de usar no slide
-4. Se a qualidade não servir, sugerir: "Se quiser uma imagem melhor, tu pode gerar no Canva, DALL-E ou Midjourney e jogar na pasta imagens/"
+4. Se a qualidade não servir, sugerir: "Se quiser uma imagem melhor, você pode gerar no Canva, DALL-E ou Midjourney e colocar na pasta imagens/"
 
 **Dica pro prompt:** ser específico e adicionar "no text, clean background, professional" pra resultados mais limpos.
 
@@ -313,7 +313,7 @@ Se o usuário já tiver chave de algum serviço:
 - **Stability AI** (gratuito ~25/dia): qualidade boa, precisa de `STABILITY_API_KEY`
 - **Replicate Flux** (5 grátis/mês): melhor qualidade open source, precisa de `REPLICATE_API_TOKEN`
 
-Se nenhuma dessas tiver configurada e o Pollinations não servir, orientar o usuário a gerar a imagem em outra ferramenta (Canva, Midjourney, ChatGPT) e jogar na pasta `imagens/`.
+Se nenhuma dessas tiver configurada e o Pollinations não servir, orientar o usuário a gerar a imagem em outra ferramenta (Canva, Midjourney, ChatGPT) e colocar na pasta `imagens/`.
 
 ---
 

@@ -41,5 +41,5 @@ done
 
 echo ""
 echo "Córtex OS pronto. Skills e comandos linkados (symlink) em ~/.claude/."
-echo "Como é symlink, todo 'git pull' aqui atualiza tua ferramenta na hora."
-echo "Próximo passo: abre o Claude Code e roda /setup."
+echo "Como é symlink, todo 'git pull' aqui atualiza a sua ferramenta na hora."
+echo "Próximo passo: abra o Claude Code e rode /setup."

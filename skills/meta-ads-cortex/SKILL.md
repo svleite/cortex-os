@@ -51,7 +51,7 @@ O token fica isolado dentro da skill e nao vaza pra outras sessoes do terminal.
 Depois que o `.env` estiver preenchido e o `setup.py` passar, o Claude DEVE proativamente guiar o cadastro de contas:
 
 1. Rodar `read.py accounts` para listar todas as contas disponiveis
-2. Perguntar ao usuario: "Qual a tua principal conta de anuncio? Me passa o nome do cliente, e eu preencho o contas.yaml pra ti."
+2. Perguntar ao usuario: "Qual a sua principal conta de anuncio? Me passa o nome do cliente, e eu preencho o contas.yaml para voce."
 3. Para cada cliente, perguntar (ou buscar na API se possivel):
    - Nome do cliente
    - Conta de anuncio (act_XXX) — pode escolher da lista

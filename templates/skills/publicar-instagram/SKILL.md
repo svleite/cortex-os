@@ -17,7 +17,7 @@ Na primeira vez, guiar o usuário pra escolher e configurar o método de publica
 
 ### Perguntar o método
 
-> "Pra publicar direto do Claude Code, tu tem duas opções:
+> "Pra publicar direto do Claude Code, você tem duas opções:
 >
 > **1. Post for Me** (recomendado)
 > - Publica no Instagram, TikTok e LinkedIn com uma API só
@@ -32,7 +32,7 @@ Na primeira vez, guiar o usuário pra escolher e configurar o método de publica
 > - Setup mais técnico (~15 min)
 > - Gratuito
 >
-> Qual tu prefere?"
+> Qual você prefere?"
 
 ---
 
@@ -41,8 +41,8 @@ Na primeira vez, guiar o usuário pra escolher e configurar o método de publica
 Se escolheu Post for Me:
 
 1. **Criar conta:**
-   > "Acessa postforme.dev, cria uma conta e conecta teu Instagram (e TikTok se quiser).
-   > Depois vai em Settings > API e copia a API Key. Cola aqui."
+   > "Acesse postforme.dev, crie uma conta e conecte seu Instagram (e TikTok se quiser).
+   > Depois vá em Settings > API e copie a API Key. Cole aqui."
 
 2. **Salvar a key:**
    Receber a API key e adicionar no `.env`:
@@ -55,13 +55,13 @@ Se escolheu Post for Me:
    curl -s -H "Authorization: Bearer $(grep POSTFORME_API_KEY .env | cut -d= -f2)" \
      "https://app.postforme.dev/api/v1/social-accounts?platform=instagram" | head -c 200
    ```
-   Se retornar conta conectada, tá pronto. Se não, guiar o usuário pra conectar a conta no dashboard.
+   Se retornar conta conectada, está pronto. Se não, guiar o usuário pra conectar a conta no dashboard.
 
 4. **Instalar o script de publicação:**
    Copiar `scripts/publish-postforme.js` (que vem com esta skill) pra pasta `scripts/` do projeto do usuário.
 
 5. Confirmar:
-   > "Pronto! Script de publicação instalado. Tua conta tá conectada. Pra publicar, é só chamar /publicar com as imagens."
+   > "Pronto. Script de publicação instalado. Sua conta está conectada. Pra publicar, é só chamar /publicar com as imagens."
 
 ---
 
@@ -70,15 +70,15 @@ Se escolheu Post for Me:
 Se escolheu Graph API:
 
 1. **Guiar configuração do Meta Developer:**
-   > "Vou te guiar passo a passo. Primeiro:
-   > 1. Acessa developers.facebook.com e cria um app tipo 'Empresa'
-   > 2. No app, ativa o produto 'Instagram Graph API'
-   > 3. Vai no Graph API Explorer (developers.facebook.com/tools/explorer/)
-   > 4. Seleciona teu app e gera um token com estes escopos:
+   > "Vou guiar você passo a passo. Primeiro:
+   > 1. Acesse developers.facebook.com e crie um app tipo 'Empresa'
+   > 2. No app, ative o produto 'Instagram Graph API'
+   > 3. Vá no Graph API Explorer (developers.facebook.com/tools/explorer/)
+   > 4. Selecione seu app e gere um token com estes escopos:
    >    - instagram_content_publish
    >    - instagram_basic
    >    - pages_read_engagement
-   > 5. Cola o token aqui"
+   > 5. Cole o token aqui"
 
 2. **Converter token pra longa duração (60 dias):**
    ```bash
@@ -97,9 +97,9 @@ Se escolheu Graph API:
 
 4. **Configurar imgbb (host de imagens):**
    > "A Graph API precisa de URL pública pra cada imagem. O imgbb faz isso de graça:
-   > 1. Acessa api.imgbb.com
-   > 2. Cria conta e copia a API Key
-   > 3. Cola aqui"
+   > 1. Acesse api.imgbb.com
+   > 2. Crie conta e copie a API Key
+   > 3. Cole aqui"
 
 5. **Salvar tudo no `.env`:**
    ```
@@ -112,7 +112,7 @@ Se escolheu Graph API:
    Copiar `scripts/publish-graph-api.js` (que vem com esta skill) pra pasta `scripts/` do projeto do usuário.
 
 7. **Avisar sobre renovação:**
-   > "Importante: teu token do Instagram expira em 60 dias. Quando parar de funcionar, roda /publicar de novo que eu te guio pra renovar."
+   > "Importante: seu token do Instagram expira em 60 dias. Quando parar de funcionar, rode /publicar de novo que eu guio você na renovação."
 
 ---
 
@@ -122,7 +122,7 @@ Se escolheu Graph API:
 
 Se o usuário chamou `/publicar` sem argumentos, verificar:
 - Existe `conteudo/carrosseis/` com PNGs recentes? Se sim, oferecer publicar o mais recente
-- Se não, perguntar: "O que tu quer publicar? Me passa o caminho das imagens ou roda /carrossel primeiro"
+- Se não, perguntar: "O que você quer publicar? Me passe o caminho das imagens ou rode /carrossel primeiro"
 
 Se chamou com caminho (ex: `/publicar conteudo/carrosseis/ia-no-varejo/instagram/`):
 - Usar os PNGs e o `carousel-text.md` (legenda) daquela pasta
@@ -144,7 +144,7 @@ Antes de qualquer publicação, mostrar preview:
 > - Legenda: [primeiros 200 chars]...
 > - Método: Post for Me / Graph API
 >
-> Quer que eu faça um dry-run primeiro pra testar, ou manda direto?"
+> Quer que eu faça um dry-run primeiro pra testar, ou mando direto?"
 
 ### 4. Dry-run (recomendado na primeira vez)
 
@@ -191,10 +191,10 @@ node --env-file=.env scripts/publish-graph-api.js \
 ### 6. Confirmar
 
 Após publicação:
-> "Publicado no Instagram! [link se disponível]"
+> "Publicado no Instagram. [link se disponível]"
 
 Se o usuário quiser publicar no TikTok também (e usar Post for Me), perguntar:
-> "Quer publicar no TikTok também? Vai como rascunho pra tu escolher a música no app."
+> "Quer publicar no TikTok também? Vai como rascunho pra você escolher a música no app."
 
 ---
 
@@ -206,4 +206,4 @@ Se o usuário quiser publicar no TikTok também (e usar Post for Me), perguntar:
 - Se o token da Graph API expirou, guiar renovação em vez de dar erro genérico
 - Legenda max: 2200 caracteres (Instagram/TikTok), 3000 (LinkedIn)
 - Imagens: 2-10 (Instagram), 4-35 (TikTok)
-- Nunca commitar `.env` no git (já tá no .gitignore)
+- Nunca commitar `.env` no git (já está no .gitignore)

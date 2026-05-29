@@ -33,7 +33,7 @@ Perguntar em conversa natural (uma pergunta por vez):
 - Conteúdo (canal, série, newsletter)
 - Interno (processo, ferramenta, organização)
 
-**Pergunta 3:** "Me explica em poucas palavras o que é o projeto e o que tu precisa entregar."
+**Pergunta 3:** "Me explique em poucas palavras o que é o projeto e o que você precisa entregar."
 
 **Pergunta 4:** "Tem prazo, orçamento ou ferramenta específica que eu precise saber?"
 
@@ -103,7 +103,7 @@ Exemplo:
 
 Se a seção de estrutura não existir ou não fizer sentido editar, pular e informar:
 
-> "Criei a pasta e o CLAUDE.md do projeto. Se quiser, adiciona na estrutura de pastas do CLAUDE.md principal depois."
+> "Criei a pasta e o CLAUDE.md do projeto. Se quiser, adicione na estrutura de pastas do CLAUDE.md principal depois."
 
 ### Passo 5: Atualizar contexto (se aplicável)
 

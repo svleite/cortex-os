@@ -1,4 +1,4 @@
-# Rd Station — Córtex OS
+# Rd Station: Córtex OS
 
 Consulta dados do RD Station Marketing via API v2 (token privado). Le leads por origem de ads (utm_source/medium/campaign), taxas de conversao por etapa do funil (lead → MQL → reuniao → proposta), eventos de conversao e calcula CPL qualificado real. Use quando o usuario mencionar rd station, rdstation, leads qualificados, funil de vendas, cpl qualificado, leads por origem, mql, reuniao agendada, proposta enviada, crm de leads, leads ads. Tambem dispara com /rd-station-cortex setup.
 

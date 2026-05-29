@@ -5,7 +5,7 @@ description: Consulta dados do RD Station Marketing via API v2 (token privado). 
 
 # RD Station Córtex
 
-Skill para consulta de dados do RD Station Marketing via API v2 (token privado). Cruza leads de ads com estágios do funil para calcular CPL Qualificado real — não só CPL de clique, mas lead que chegou em reunião/oportunidade.
+Skill para consulta de dados do RD Station Marketing via API v2 (token privado). Cruza leads de ads com estágios do funil para calcular CPL Qualificado real: não só CPL de clique, mas lead que chegou em reunião/oportunidade.
 
 **IMPORTANTE: Esta skill é o braço de execução para RD Station. Para inteligência (diagnóstico, estratégia), use ads-cortex como camada acima.**
 
@@ -81,26 +81,26 @@ O Claude deve interpretar o pedido do usuário e executar o script correto via B
 
 ## Regras de segurança
 
-1. **Somente leitura** — RD Station Córtex é skill de consulta, NÃO modifica dados
-2. **Nunca hardcodar tokens** — sempre usar `.env` ou `contas.yaml`
-3. **Respeitar rate limits** — se receber erro 429, aguardar 60s antes de tentar novamente
-4. **Nunca assumir origem de dados** — ao mostrar métricas, SEMPRE especificar o período e o cliente consultado
-5. **NUNCA usar MCPs** — esta skill usa SOMENTE os scripts Python locais
+1. **Somente leitura**: RD Station Córtex é skill de consulta, NÃO modifica dados
+2. **Nunca hardcodar tokens**: sempre usar `.env` ou `contas.yaml`
+3. **Respeitar rate limits**: se receber erro 429, aguardar 60s antes de tentar novamente
+4. **Nunca assumir origem de dados**: ao mostrar métricas, SEMPRE especificar o período e o cliente consultado
+5. **NUNCA usar MCPs**: esta skill usa SOMENTE os scripts Python locais
 
 ## Fluxos comuns
 
 ### CPL Qualificado (cruzamento ads × funil)
 
-1. `read.py leads --utm-source google,facebook,linkedin --since 2026-01-01 --until 2026-03-31` — leads por canal
-2. `read.py funnel` — taxa de conversão lead → reunião
-3. `read.py summary` — CPL qualificado estimado por canal
+1. `read.py leads --utm-source google,facebook,linkedin --since 2026-01-01 --until 2026-03-31`: leads por canal
+2. `read.py funnel`: taxa de conversão lead → reunião
+3. `read.py summary`: CPL qualificado estimado por canal
 
 ### Diagnóstico de funil
 
-1. `read.py funnel` — ver onde o funil quebra (taxa de MQL baixa? reunião? proposta?)
-2. `read.py leads --utm-source google` — qualidade dos leads de cada canal
+1. `read.py funnel`: ver onde o funil quebra (taxa de MQL baixa? reunião? proposta?)
+2. `read.py leads --utm-source google`: qualidade dos leads de cada canal
 
 ### Relatório mensal de leads
 
-1. `read.py summary --since 2026-03-01 --until 2026-03-31` — visão geral
-2. `read.py leads --since 2026-03-01 --until 2026-03-31` — detalhado por origem
+1. `read.py summary --since 2026-03-01 --until 2026-03-31`: visão geral
+2. `read.py leads --since 2026-03-01 --until 2026-03-31`: detalhado por origem

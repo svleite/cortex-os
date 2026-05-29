@@ -11,7 +11,7 @@ description: >
 
 ## Dependências
 
-- **Contexto do negócio:** `_contexto/empresa.md` (pra entender o que os dados representam)
+- **Contexto do negócio:** `_contexto/empresa.md` (para entender o que os dados representam)
 - **Tom de voz:** `_contexto/preferencias.md`
 
 ---
@@ -20,19 +20,19 @@ description: >
 
 ### Passo 1 — Entender o contexto
 
-Antes de analisar, perguntar se não estiver claro:
+Antes de analisar, pergunte se não estiver claro:
 - "O que é esse arquivo? (vendas, anúncios, métricas, respostas de pesquisa...)"
 - "Qual é a pergunta principal que você quer responder com esses dados?"
 
-Se o contexto estiver óbvio pelo nome do arquivo ou pelo conteúdo, prossegue sem perguntar.
+Se o contexto estiver óbvio pelo nome do arquivo ou pelo conteúdo, prossiga sem perguntar.
 
 ### Passo 2 — Ler o arquivo
 
-Ler o arquivo fornecido. Se for Excel (.xlsx), ler com as ferramentas disponíveis pra extrair o conteúdo das células.
+Leia o arquivo fornecido. Se for Excel (.xlsx), leia com as ferramentas disponíveis para extrair o conteúdo das células.
 
 ### Passo 3 — Análise
 
-Identificar e reportar:
+Identifique e reporte:
 
 **O que está bom:**
 - Métricas acima da média ou em crescimento
@@ -55,7 +55,7 @@ Identificar e reportar:
 
 ### Passo 4 — Output
 
-Gerar um resumo executivo em prosa (não só bullet points):
+Gere um resumo executivo em prosa (não só bullet points):
 
 ```markdown
 # Análise — [Nome do Arquivo/Relatório]
@@ -81,15 +81,15 @@ Gerar um resumo executivo em prosa (não só bullet points):
 | ... | ... | ... |
 ```
 
-Salvar em `estudos/analise-[nome]-[data].md` ou na pasta mais adequada pro perfil do usuário.
+Salve em `estudos/analise-[nome]-[data].md` ou na pasta mais adequada para o perfil do usuário.
 
-Perguntar se quer exportar o resumo em HTML pra compartilhar ou apresentar.
+Pergunte se quer exportar o resumo em HTML para compartilhar ou apresentar.
 
 ---
 
 ## Regras
 
-- Análise em prosa, não só listas — o usuário deve poder ler e entender sem abrir o arquivo original
+- Análise em prosa, não só listas: o usuário deve poder ler e entender sem abrir o arquivo original
 - Nunca inventar dados que não estão no arquivo
-- Se os dados estiverem incompletos ou com problemas, mencionar antes de analisar
+- Se os dados estiverem incompletos ou com problemas, mencione antes de analisar
 - Tom conforme `_contexto/preferencias.md`

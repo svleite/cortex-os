@@ -45,7 +45,7 @@ O objetivo é montar uma lista clara de processos repetitivos. Pra cada um, ente
 
 Quando tiver entendido o suficiente (geralmente 3-6 processos), apresentar o mapa:
 
-> "Beleza, identifiquei esses processos no seu dia a dia:
+> "Identifiquei esses processos no seu dia a dia:
 >
 > 1. **[nome do processo]** — [frequência] — [gera entregável / é um fluxo]
 > 2. **[nome do processo]** — [frequência] — [gera entregável / é um fluxo]
@@ -80,7 +80,7 @@ Adaptar conforme o feedback antes de instalar.
 
 **Se encontrar skill externa compatível (do catálogo):**
 
-> "Já existe uma skill pronta pra isso: [nome]. Ela [o que faz em uma frase]. Você pode usar ela direto com `/[nome]` sem precisar criar nada. Quer testar?"
+> "Já existe uma skill pronta pra isso: [nome]. Ela [o que faz em uma frase]. Você pode usá-la direto com `/[nome]` sem precisar criar nada. Quer testar?"
 
 Se o usuário quiser adaptar o comportamento, criar uma skill local que complementa ou substitui a externa.
 
@@ -113,7 +113,7 @@ Antes de criar qualquer coisa, mostrar o plano:
 > - [Instalar a skill `/newsletter` em .claude/skills/newsletter/SKILL.md] (se aplicável)
 > - [A skill vai salvar os arquivos em `conteudo/newsletters/`] (se aplicável)
 >
-> Bora?"
+> Podemos seguir?"
 
 Só criar depois que o usuário confirmar.
 
@@ -183,7 +183,7 @@ Se a skill precisar de arquivos de apoio (templates HTML, referências de design
 
 Depois de criar, confirmar:
 
-> "Pronto, a skill `/[nome]` tá instalada. Você pode rodar ela agora se quiser testar, ou a gente segue pro próximo processo."
+> "Pronto, a skill `/[nome]` está instalada. Você pode rodá-la agora se quiser testar, ou seguimos pro próximo processo."
 
 ## Fase 4 — Continuar ou encerrar
 
@@ -208,7 +208,7 @@ Mensagem final:
 
 ## Regras
 
-- Tom direto, conversa natural, sem formalidade
+- Tom direto e profissional, conversa natural, sem corporativês inflado
 - Uma pergunta por vez durante a entrevista. Não listar 5 perguntas de uma vez
 - Sempre verificar o que já existe antes de criar pasta ou skill nova
 - Sempre mostrar o plano antes de criar qualquer coisa

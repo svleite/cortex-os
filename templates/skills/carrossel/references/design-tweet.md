@@ -1,4 +1,4 @@
-# Regras de Design — Carrossel (Estilo Tweet)
+# Regras de Design, Carrossel (Estilo Tweet)
 
 > Simula o visual de um tweet/post do Twitter/X em cada slide.
 > Fundo branco, foto de perfil, nome e @handle no topo, texto limpo embaixo.
@@ -100,7 +100,7 @@ Mesmo sendo "tweet", variar o conteúdo visual pra não ficar 8 slides idêntico
 
 No setup, perguntar ao usuário:
 
-> "Pra o estilo tweet, preciso de uma foto de perfil. Joga o arquivo na pasta `marca/` (ex: marca/foto-perfil.jpg). Se não tiver agora, uso as iniciais do teu nome."
+> "Pra o estilo tweet, preciso de uma foto de perfil. Coloque o arquivo na pasta `marca/` (ex: marca/foto-perfil.jpg). Se não tiver agora, uso as iniciais do seu nome."
 
 - Guardar como `marca/foto-perfil.jpg` ou `.png`
 - Referenciar no HTML com caminho relativo
@@ -126,4 +126,4 @@ No setup, perguntar ao usuário:
 - **Com barra de progresso:** adicionar se quiser (não é padrão tweet)
 - **Quer mais visual:** considerar trocar pro estilo minimalista ou elaborado
 
-Pede pro Claude: "muda a regra X no design do carrossel" e ele edita este arquivo.
+Peça pro Claude: "muda a regra X no design do carrossel" e ele edita este arquivo.

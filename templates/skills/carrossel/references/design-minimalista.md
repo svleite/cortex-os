@@ -1,8 +1,8 @@
 # Regras de Design — Carrossel
 
 > Este arquivo controla como os slides do carrossel são criados visualmente.
-> Tu pode editar qualquer regra aqui e o Claude vai seguir na próxima vez que criar um carrossel.
-> Se algo não tá ficando do teu jeito, muda aqui ou pede pro Claude mudar.
+> Você pode editar qualquer regra aqui e o Claude vai seguir na próxima vez que criar um carrossel.
+> Se algo não está ficando do seu jeito, mude aqui ou peça para o Claude mudar.
 
 ---
 
@@ -116,13 +116,13 @@ Se o design guide (`marca/design-guide.md`) tiver logo definido na seção **Log
 
 ## O que ajustar aqui
 
-Se tu não tá gostando do resultado visual, as coisas mais comuns de mudar são:
+Se você não está gostando do resultado visual, as coisas mais comuns de mudar são:
 
-- **Slides muito escuros/claros:** muda a seção "Ritmo visual"
-- **Layout repetitivo:** adiciona ou remove layouts na seção "Layouts disponíveis"
-- **Barra de progresso incomoda:** remove da seção "Elementos fixos"
-- **Quer mais/menos espaço:** ajusta a safe area na seção "Dimensões"
-- **Imagens não ficam boas:** ajusta os overlays na seção "Tratamento de imagens"
-- **Quer um elemento novo** (ex: ícones, separadores, bordas arredondadas): adiciona como novo item em "Layouts disponíveis"
+- **Slides muito escuros/claros:** mude a seção "Ritmo visual"
+- **Layout repetitivo:** adicione ou remova layouts na seção "Layouts disponíveis"
+- **Barra de progresso incomoda:** remova da seção "Elementos fixos"
+- **Quer mais/menos espaço:** ajuste a safe area na seção "Dimensões"
+- **Imagens não ficam boas:** ajuste os overlays na seção "Tratamento de imagens"
+- **Quer um elemento novo** (ex: ícones, separadores, bordas arredondadas): adicione como novo item em "Layouts disponíveis"
 
-Qualquer mudança aqui vale pro próximo carrossel. Pede pro Claude: "muda a regra X no design do carrossel" e ele edita este arquivo.
+Qualquer mudança aqui vale pro próximo carrossel. Peça para o Claude: "muda a regra X no design do carrossel" e ele edita este arquivo.

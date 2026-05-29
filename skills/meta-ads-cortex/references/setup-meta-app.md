@@ -1,4 +1,4 @@
-# Setup do App Meta — Guia passo a passo
+# Setup do App Meta: guia passo a passo
 
 Referencia completa para o Claude orientar o aluno durante o setup.
 O aluno pode mandar prints de cada tela e o Claude deve comparar com os passos abaixo.
@@ -16,7 +16,7 @@ O processo todo leva ~10 minutos.
 
 ---
 
-## Passo 1 — Criar conta de desenvolvedor
+## Passo 1: criar conta de desenvolvedor
 
 1. Acessar https://developers.facebook.com
 2. Se nunca usou, clicar em "Comece agora" e aceitar os termos
@@ -27,7 +27,7 @@ O processo todo leva ~10 minutos.
 
 ---
 
-## Passo 2 — Criar o app
+## Passo 2: criar o app
 
 1. No painel, clicar em **"Meus Apps"** (menu superior) > **"Criar App"**
 2. Selecionar tipo: **"Outro"** ou **"Negocio"** (qualquer um funciona)
@@ -39,11 +39,11 @@ O processo todo leva ~10 minutos.
 
 **O que o aluno vai ver:** um painel com o app criado, mostrando o App ID no topo.
 
-**Anotar:** O **App ID** (numero tipo `905545132380980`) — vai pro campo `META_APP_ID` no `.env`.
+**Anotar:** O **App ID** (numero tipo `905545132380980`), vai pro campo `META_APP_ID` no `.env`.
 
 ---
 
-## Passo 3 — Adicionar produto "Marketing API"
+## Passo 3: adicionar produto "Marketing API"
 
 1. No menu lateral do app, clicar em **"Adicionar produto"** (ou "Add product")
 2. Procurar **"Marketing API"**
@@ -53,7 +53,7 @@ O processo todo leva ~10 minutos.
 
 ---
 
-## Passo 4 — Gerar o token de acesso
+## Passo 4: gerar o token de acesso
 
 1. Acessar https://developers.facebook.com/tools/explorer/
 2. No campo **"Meta App"** (canto superior direito), selecionar o app criado no passo 2
@@ -71,7 +71,7 @@ O processo todo leva ~10 minutos.
 
 **IMPORTANTE:** Este token expira em ~1 hora. Ver passo 6 para estender.
 
-**Anotar:** O token (comeca com `EAAM...`) — vai pro campo `META_ADS_TOKEN` no `.env`.
+**Anotar:** O token (comeca com `EAAM...`), vai pro campo `META_ADS_TOKEN` no `.env`.
 
 **Problemas comuns:**
 - "Erro ao gerar token" → verificar se o app esta vinculado a uma conta comercial
@@ -80,7 +80,7 @@ O processo todo leva ~10 minutos.
 
 ---
 
-## Passo 5 — Mudar o app para modo Live
+## Passo 5: mudar o app para modo Live
 
 **Por que:** Em modo Development, o app so funciona para leitura. Para criar campanhas, criativos e dark posts, precisa estar em modo Live.
 
@@ -101,7 +101,7 @@ O processo todo leva ~10 minutos.
 
 ---
 
-## Passo 6 — Estender o token (opcional, recomendado)
+## Passo 6: estender o token (opcional, recomendado)
 
 O token do Graph API Explorer expira em ~1 hora. Para estender para 60 dias:
 
@@ -125,7 +125,7 @@ GET https://graph.facebook.com/v22.0/oauth/access_token
 
 ---
 
-## Passo 7 — Vincular paginas ao app (para criar anuncios)
+## Passo 7: vincular paginas ao app (para criar anuncios)
 
 Para criar criativos e dark posts, as paginas do Facebook usadas nos anuncios precisam estar vinculadas ao app.
 
@@ -161,7 +161,7 @@ Se todos os itens estiverem OK, o Claude pode prosseguir preenchendo o `.env` e 
 |------|-------|---------|
 | "Invalid OAuth access token" | Token expirado ou invalido | Regerar token no Graph API Explorer |
 | "app em modo de desenvolvimento" | App nao esta em Live | Mudar toggle para Live nas configuracoes |
-| "Invalid appsecret_proof" | Endpoint requer app_secret | Nao precisa resolver — os scripts da skill nao usam endpoints que exigem isso |
+| "Invalid appsecret_proof" | Endpoint requer app_secret | Nao precisa resolver: os scripts da skill nao usam endpoints que exigem isso |
 | "Insufficient permissions" | Faltou permissao no token | Regerar token adicionando as permissoes listadas no passo 4 |
 | "Pages not authorized" | Pagina nao vinculada ao app | Ver passo 7 |
 | "(#2663) Terms of service" | Termos de Custom Audiences | Acessar o link do erro e aceitar os termos |

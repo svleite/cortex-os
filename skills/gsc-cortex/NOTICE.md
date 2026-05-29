@@ -9,5 +9,5 @@ licença MIT (ver `LICENSE`). O código não tem preço: o valor está na
 ## Proveniência
 
 Inspirado no projeto **Ratos de IA** (ratosdeia.com.br) e atualizado pela
-**comunidade open source** de skills do Claude Code. Se tu reconhece um
-trecho teu aqui e quer atribuição nominal ou ajuste de licença, abre uma issue.
+**comunidade open source** de skills do Claude Code. Se você reconhece um
+trecho seu aqui e quer atribuição nominal ou ajuste de licença, abra uma issue.

@@ -9,7 +9,7 @@ Camada de inteligência para gestão de tráfego pago. Diagnostica contas,
 gera relatórios visuais, audita campanhas e aplica Quality Gates com
 benchmarks do mercado brasileiro.
 
-Não executa ações na API diretamente — delega para skills de execução:
+Não executa ações na API diretamente; delega para skills de execução:
 - **Meta Ads**: skill `meta-ads-cortex` (SDK oficial facebook-business)
 - **Google Ads**: skill `google-ads-cortex` (SDK oficial google-ads)
 - **Google Analytics**: skill `ga4-cortex` (GA4 Data API)
@@ -66,7 +66,7 @@ O Claude DEVE:
 2. **Quando o usuário corrigir algo**, perguntar: "Quer que eu registre isso nos aprendizados pra não esquecer nas próximas vezes?"
 3. **Quando o usuário pedir** ("lembra disso", "registra", "anota"), registrar imediatamente
 4. **Ser proativo**: se o usuário pedir pra refazer ou ajustar algo que já foi gerado, perguntar se quer registrar a correção
-5. **Não duplicar** — verificar se já existe regra similar antes de adicionar
+5. **Não duplicar**: verificar se já existe regra similar antes de adicionar
 
 Cada skill de execução (meta-ads-cortex, google-ads-cortex, ga4-cortex) tem seu próprio `aprendizados.md` pra regras específicas da plataforma. O do ads-cortex é pra regras gerais (formato de relatório, preferências de visualização, etc).
 

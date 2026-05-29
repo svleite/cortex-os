@@ -5,9 +5,9 @@ description: Cria propriedades Google Analytics 4 e fluxos de dados web via Anal
 
 # GA4 Setup
 
-Skill pra criar propriedades Google Analytics 4 e web data streams via **Analytics Admin API**. Retorna o Measurement ID (`G-XXXXXXXXXX`) e opcionalmente atualiza um arquivo de configuração do cliente.
+Skill para criar propriedades Google Analytics 4 e web data streams via **Analytics Admin API**. Retorna o Measurement ID (`G-XXXXXXXXXX`) e opcionalmente atualiza um arquivo de configuração do cliente.
 
-**Separado do ga4-reader** (leitura) e do gtm-cortex. O token OAuth do GTM não cobre escopos do Analytics Admin — essa skill tem seu próprio refresh token.
+**Separado do ga4-reader** (leitura) e do gtm-cortex. O token OAuth do GTM não cobre escopos do Analytics Admin: essa skill tem seu próprio refresh token.
 
 ---
 
@@ -15,13 +15,13 @@ Skill pra criar propriedades Google Analytics 4 e web data streams via **Analyti
 
 ### 1. Habilitar Analytics Admin API no Google Cloud
 
-1. Acessa `https://console.cloud.google.com/apis/library/analyticsadmin.googleapis.com`
-2. Seleciona o projeto Google Cloud que usa pra suas integrações
-3. Clica **Enable**
+1. Acesse `https://console.cloud.google.com/apis/library/analyticsadmin.googleapis.com`
+2. Selecione o projeto Google Cloud que usa para suas integrações
+3. Clique **Enable**
 
 ### 2. Configurar `.env`
 
-Cria `.claude/skills/ga4-setup-cortex/.env` com o template abaixo. Se você já tem o `gtm-cortex` configurado, pode reusar o mesmo `CLIENT_ID` e `CLIENT_SECRET` — mas o `GA4C_REFRESH_TOKEN` precisa ser gerado separadamente (escopos diferentes).
+Crie `.claude/skills/ga4-setup-cortex/.env` com o template abaixo. Se você já tem o `gtm-cortex` configurado, pode reusar o mesmo `CLIENT_ID` e `CLIENT_SECRET`, mas o `GA4C_REFRESH_TOKEN` precisa ser gerado separadamente (escopos diferentes).
 
 ```
 # GA4 Setup - OAuth user-flow
@@ -42,7 +42,7 @@ python3 .claude/skills/ga4-setup-cortex/scripts/oauth_setup.py
 
 - Abre browser → loga com a conta Google que tem acesso ao GA4
 - Escopos: `analytics.edit` + `analytics.manage.users`
-- **ATENÇÃO:** esses escopos são diferentes do GTM — precisa gerar token novo mesmo que gtm-cortex já esteja configurado
+- **ATENÇÃO:** esses escopos são diferentes do GTM. Precisa gerar token novo mesmo que gtm-cortex já esteja configurado
 - Script salva o `refresh_token` no `.env` automaticamente
 
 ### 4. Validar
@@ -57,7 +57,7 @@ Deve listar as contas GA4 acessíveis.
 
 ## Como usar
 
-### Fluxo padrão pra criar GA4 de um cliente
+### Fluxo padrão para criar GA4 de um cliente
 
 **Passo 1 — listar contas**
 
@@ -65,7 +65,7 @@ Deve listar as contas GA4 acessíveis.
 python3 .claude/skills/ga4-setup-cortex/scripts/create_property.py accounts
 ```
 
-Anota o `account_id` da conta onde vai criar a propriedade.
+Anote o `account_id` da conta onde vai criar a propriedade.
 
 **Passo 2 — criar propriedade + data stream**
 
@@ -93,7 +93,7 @@ O script:
 | `--account-id` | Sim | — | ID da conta GA4 (obter via `accounts`) |
 | `--timezone` | Não | `America/Sao_Paulo` | Fuso horário |
 | `--currency` | Não | `BRL` | Moeda |
-| `--client-slug` | Não | — | Slug do cliente pra atualizar `clientes/[slug]/cliente.md` |
+| `--client-slug` | Não | — | Slug do cliente para atualizar `clientes/[slug]/cliente.md` |
 
 ---
 
@@ -112,7 +112,7 @@ Uma conta pode ter várias propriedades. Cada propriedade pode ter múltiplos da
 
 - `.env` (com `GA4C_REFRESH_TOKEN`) está no `.gitignore` — nunca commitar
 - O refresh_token autentica como o usuário Google que rodou `oauth_setup.py`
-- Pra revogar: `https://myaccount.google.com/permissions` → remove o OAuth client → rodar `oauth_setup.py` de novo
+- Para revogar: `https://myaccount.google.com/permissions` → remove o OAuth client → rodar `oauth_setup.py` de novo
 
 ## Dependências
 

@@ -1,7 +1,7 @@
 # Regras de Design — Carrossel (Elaborado)
 
 > Este arquivo controla como os slides do carrossel são criados visualmente.
-> Tu pode editar qualquer regra aqui e o Claude vai seguir na próxima vez que criar um carrossel.
+> Você pode editar qualquer regra aqui e o Claude vai seguir na próxima vez que criar um carrossel.
 
 ---
 
@@ -152,9 +152,9 @@ Se `marca/design-guide.md` tiver logo, incluir no CTA: 120-200px.
 
 ## O que ajustar
 
-- **Muito caótico:** reduz elementos decorativos, aumenta respiro, remove stripes/glow
-- **Pouca energia:** adiciona mais texturas, split layouts, números maiores
-- **Layout repetitivo:** escolhe layouts diferentes da lista acima
-- **Quer estilo específico:** descreve aqui (ex: "brutalista", "neon cyberpunk", "editorial revista")
+- **Muito caótico:** reduza elementos decorativos, aumente respiro, remova stripes/glow
+- **Pouca energia:** adicione mais texturas, split layouts, números maiores
+- **Layout repetitivo:** escolha layouts diferentes da lista acima
+- **Quer estilo específico:** descreva aqui (ex: "brutalista", "neon cyberpunk", "editorial revista")
 
-Qualquer mudança aqui vale pro próximo carrossel. Pede pro Claude: "muda a regra X no design do carrossel" e ele edita este arquivo.
+Qualquer mudança aqui vale pro próximo carrossel. Peça ao Claude: "muda a regra X no design do carrossel" e ele edita este arquivo.

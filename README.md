@@ -3,7 +3,7 @@
 **Sistema operacional de negócio para Venda Mais com Conteúdo, dentro do [Claude Code](https://claude.com/claude-code).**
 
 Não é uma coleção solta de skills. É um OS: um shell de comandos (`/setup`, `/mapear`,
-`/iniciar`, `/atualizar`, `/syncar`) que configura o ambiente pro teu negócio, mais um
+`/iniciar`, `/atualizar`, `/syncar`) que configura o ambiente pro seu negócio, mais um
 conjunto de skills de execução (tráfego pago, analytics, automação, conteúdo).
 
 Open source e **gratuito**. Sinta-se livre para modificar e repassar livremente sob MIT.
@@ -16,10 +16,10 @@ Um comando (clona em `~/.cortex-os` e linka tudo em `~/.claude/`):
 curl -fsSL https://raw.githubusercontent.com/svleite/cortex-os/main/install.sh | bash
 ```
 
-Depois, abre o Claude Code e roda **`/setup`**.
+Depois, abra o Claude Code e rode **`/setup`**.
 
 > A instalação usa **symlink**, não cópia. Isso é de propósito: quando o Córtex OS é
-> atualizado, um `git pull` reflete na tua ferramenta na hora, sem reinstalar.
+> atualizado, um `git pull` reflete na sua ferramenta na hora, sem reinstalar.
 
 ## Atualizar
 
@@ -28,15 +28,15 @@ cd ~/.cortex-os && git pull && ./install.sh
 ```
 
 (ou rode o one-liner de instalação de novo, é idempotente). Como as skills são
-symlinks pro `~/.cortex-os`, o pull já atualiza o que tu usa. O `install.sh` só
+symlinks pro `~/.cortex-os`, o pull já atualiza o que você usa. O `install.sh` só
 re-linka skills/comandos novos que tenham surgido.
 
 ## O shell do OS (comandos)
 
 | Comando | O que faz |
 |---------|-----------|
-| `/setup` | Onboarding: configura CLAUDE.md, memória e estrutura pro teu negócio |
-| `/mapear` | Entrevista teus processos repetitivos e cria skills sob medida |
+| `/setup` | Onboarding: configura CLAUDE.md, memória e estrutura pro seu negócio |
+| `/mapear` | Entrevista seus processos repetitivos e cria skills sob medida |
 | `/iniciar` | Abre a sessão lendo contexto e propondo foco |
 | `/atualizar` | Reconcilia o workspace com a documentação (manutenção de contexto) |
 | `/novo-projeto` | Cria pasta de projeto novo com CLAUDE.md próprio |
