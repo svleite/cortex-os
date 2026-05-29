@@ -10,3 +10,6 @@ reports/
 .DS_Store
 node_modules/
 .playwright-mcp/
+
+# dados de cliente (local, nunca versionar)
+contas.yaml
