@@ -1,10 +1,16 @@
 # Córtex OS
 
-**Sistema operacional de negócio para Venda Mais com Conteúdo, dentro do [Claude Code](https://claude.com/claude-code).**
+**Um stack de skills pra [Claude Code](https://claude.com/claude-code) que transforma o terminal no sistema operacional do seu negócio.**
 
 Não é uma coleção solta de skills. É um OS: um shell de comandos (`/setup`, `/mapear`,
 `/iniciar`, `/atualizar`, `/syncar`) que configura o ambiente pro seu negócio, mais um
-conjunto de skills de execução (tráfego pago, analytics, automação, conteúdo).
+conjunto de skills de execução que colocam tecnologia e IA pra trabalhar em operações
+reais, tráfego pago, analytics, automação, atendimento, conteúdo. De pequenas a grandes empresas.
+
+Fork do projeto **Ratos de IA**, mantido e expandido por Samuel Leite, fundador da
+**[Digitale](https://digitale.com.br)**. A Digitale usa esse mesmo stack no dia a dia
+pra implementar recursos de tecnologia e IA nos negócios dos clientes. O código é livre;
+o valor está na implementação.
 
 Open source e **gratuito**. Sinta-se livre para modificar e repassar livremente sob MIT.
 
@@ -81,5 +87,6 @@ Quem quiser ajuda pra implementar em operações específicas.
 
 ## Licença e proveniência
 
-Open source sob **MIT** (ver [LICENSE](LICENSE)). Atualizado pela comunidade open
-source de skills do Claude Code. Detalhes em [NOTICE.md](NOTICE.md).
+Open source sob **MIT** (ver [LICENSE](LICENSE)). Fork do projeto **Ratos de IA**,
+mantido por Samuel Leite ([Digitale](https://digitale.com.br)) e expandido junto com a
+comunidade open source de skills do Claude Code. Detalhes em [NOTICE.md](NOTICE.md).
