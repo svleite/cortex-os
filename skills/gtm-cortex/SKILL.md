@@ -42,11 +42,46 @@ python3 .claude/skills/gtm-cortex/scripts/auth.py
 ```
 Deve listar accounts e containers acessíveis.
 
+## Regra número 1: nada vai ao ar sem prévia e sem o usuário ver
+
+1. Toda escrita (`receitas.py`, `publicar.py publicar|voltar`) **sem `--confirmar` só mostra o plano**. Mostre o plano, espere o ok explícito, rode de novo com `--confirmar`. Nunca use `--confirmar` sem aprovação na conversa.
+2. Escrever no workspace **não muda o site**. O site só muda ao publicar uma versão.
+3. A ordem não se pula: **receita (prévia) → `--confirmar` → modo Visualizar no GTM (o usuário testa) → `publicar.py publicar` (prévia, depois `--confirmar`) → `publicar.py verificar`**.
+4. O container é sempre indicado pelo ID público (`--container GTM-XXXXXXX`), resolvido via API. Não gravar IDs de cliente em arquivo da skill.
+
 ## Como usar
 
-Scripts em `scripts/`:
-- `auth.py` — testa autenticação, lista accounts/containers/workspaces
-- `setup_pixel.py` — exemplo de script para configurar Meta Pixel num container (adapte para cada projeto)
+Scripts em `scripts/` (só biblioteca padrão do Python 3.9+; saída em JSON):
+
+- `auth.py`: testa autenticação, lista contas, containers e workspaces.
+- `receitas.py`: monta configurações padrão num workspace. Idempotente: pula o que já existe **pelo nome ou pela função** (ex.: não cria um segundo vinculador de conversões se já houver um com outro nome) e avisa como se chama o equivalente.
+- `publicar.py`: `status` (o que mudou no workspace), `publicar` (cria versão e publica), `voltar --versao N` (republica uma versão anterior), `verificar --site URL --procurar IDs` (baixa o `gtm.js` publicado e confere; sai com código 1 se faltar algo).
+- `gtm_lib.py`: biblioteca comum (OAuth, chamadas, resolução de container).
+
+### Receitas
+
+| Receita | Parâmetros | O que monta |
+|---|---|---|
+| `base` | `--ga4 G-X` | Tag do Google do GA4 (inicialização) + vinculador de conversões |
+| `google-ads` | `--ads AW-123` | Tag do Google da conta de anúncios + remarketing + vinculador |
+| `lead-whatsapp` | `--ga4` e/ou `--ads-conversao AW-123/rotulo`; `--sem-joinchat`, `--sem-links` | Gatilho do evento `JoinChat` (plugin Joinchat do WordPress) + gatilho de clique em links `wa.me`/`api.whatsapp.com`/`whatsapp:`; evento GA4 `generate_lead` com `method=whatsapp`; conversão do Ads |
+| `lead-telefone` | `--ga4` e/ou `--ads-conversao` | Gatilho de clique em `tel:` + `generate_lead` (`method=telefone`) + conversão |
+| `meta-pixel` | `--pixel ID` `[--lead]` | Código base do pixel (PageView) + Lead no clique de WhatsApp (exige os gatilhos do `lead-whatsapp`) |
+
+Exemplo completo:
+```bash
+S=~/.claude/skills/gtm-cortex/scripts
+python3 $S/receitas.py listar        --container GTM-XXXXXXX
+python3 $S/receitas.py lead-whatsapp --container GTM-XXXXXXX --ga4 G-XXXXXXX --ads-conversao AW-123456789/AbCdEf
+#   ...mostrar o plano, ok do usuário...
+python3 $S/receitas.py lead-whatsapp --container GTM-XXXXXXX --ga4 G-XXXXXXX --ads-conversao AW-123456789/AbCdEf --confirmar
+#   ...usuário testa no modo Visualizar do GTM...
+python3 $S/publicar.py publicar  --container GTM-XXXXXXX --nome "v4 - lead WhatsApp"          # prévia
+python3 $S/publicar.py publicar  --container GTM-XXXXXXX --nome "v4 - lead WhatsApp" --confirmar
+python3 $S/publicar.py verificar --container GTM-XXXXXXX --site https://cliente.com.br --procurar G-XXXXXXX,AW-123456789,JoinChat
+```
+
+Depois de publicar uma receita com `generate_lead`, marcar o evento como **principal** no GA4. Antes de mexer num container de cliente, ler `aprendizados.md`.
 
 ## Conceitos GTM
 
