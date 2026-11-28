@@ -10,6 +10,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from lib import orcamento
 from lib import (
     init_client,
     resolve_customer_id,
@@ -80,7 +81,8 @@ def cmd_campaign(args):
         # First, get current campaign to find budget resource
         from lib import run_query
         query = f"""
-            SELECT campaign.campaign_budget
+            SELECT campaign.campaign_budget, campaign.name, campaign_budget.amount_micros,
+                   campaign_budget.explicitly_shared, customer.currency_code
             FROM campaign
             WHERE campaign.id = {args.campaign_id}
         """
@@ -88,6 +90,12 @@ def cmd_campaign(args):
         if rows and "campaign" in rows[0]:
             budget_resource = rows[0]["campaign"].get("campaign_budget", "")
             if budget_resource:
+                cb = rows[0].get("campaign_budget", {})
+                atual = int(cb.get("amount_micros") or 0) // 10000  # micros -> centavos
+                compartilhado = " (orçamento COMPARTILHADO com outras campanhas)" if cb.get("explicitly_shared") else ""
+                orcamento.checar(args, f"campanha {args.campaign_id} ({rows[0]['campaign'].get('name')}){compartilhado}",
+                                 {"daily_budget": (atual, int(args.budget))}, conta_id=customer_id,
+                                 moeda=rows[0].get("customer", {}).get("currency_code", "BRL"))
                 budget_service = client.get_service("CampaignBudgetService")
                 budget_op = client.get_type("CampaignBudgetOperation")
                 budget = budget_op.update
@@ -288,6 +296,7 @@ def build_parser():
     p.add_argument("--status", help="ENABLED, PAUSED, REMOVED")
     p.add_argument("--name", help="New campaign name")
     p.add_argument("--budget", help="New daily budget in centavos (5000 = R$50)")
+    orcamento.add_args(p)
     p.set_defaults(func=cmd_campaign)
 
     # 2. ad-group

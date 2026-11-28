@@ -5,6 +5,7 @@ Todas as criações defaultam para status=PAUSED.
 """
 import os, sys, json, argparse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import orcamento
 from lib import (init_api, resolve_account, print_json, handle_fb_error,
                  print_error, parse_fields, parse_json_arg, add_account_arg,
                  add_fields_arg, safe_delay)
@@ -53,6 +54,11 @@ def cmd_campaign(args):
         params['spend_cap'] = args.spend_cap
 
     account = AdAccount(account_id)
+    if any(k in params for k in ('daily_budget', 'lifetime_budget', 'spend_cap')):
+        moeda = account.api_get(fields=['currency']).get('currency', 'BRL')
+        orcamento.checar(args, f"nova campanha '{args.name}' (status {params['status']})",
+                         {k: (None, params[k]) for k in ('daily_budget', 'lifetime_budget', 'spend_cap') if k in params},
+                         conta_id=account_id, moeda=moeda)
     result = account.create_campaign(params=params)
     safe_delay(1)
 
@@ -101,6 +107,11 @@ def cmd_adset(args):
         params['destination_type'] = args.destination_type
 
     account = AdAccount(account_id)
+    if any(k in params for k in ('daily_budget', 'lifetime_budget')):
+        moeda = account.api_get(fields=['currency']).get('currency', 'BRL')
+        orcamento.checar(args, f"novo conjunto '{args.name}' (status {params['status']})",
+                         {k: (None, params[k]) for k in ('daily_budget', 'lifetime_budget') if k in params},
+                         conta_id=account_id, moeda=moeda)
     result = account.create_ad_set(params=params)
     safe_delay(1)
 
@@ -319,6 +330,7 @@ def main():
     p.add_argument("--start-time", help="Data/hora de inicio (ISO 8601)")
     p.add_argument("--stop-time", help="Data/hora de fim (ISO 8601)")
     p.add_argument("--spend-cap", help="Limite de gasto em centavos")
+    orcamento.add_args(p)
 
     # --- adset ---
     p = sub.add_parser("adset", help="Criar ad set")
@@ -332,6 +344,7 @@ def main():
     p.add_argument("--status", default="PAUSED", help="Status (default: PAUSED)")
     p.add_argument("--daily-budget", help="Orcamento diario em centavos")
     p.add_argument("--lifetime-budget", help="Orcamento vitalicio em centavos")
+    orcamento.add_args(p)
     p.add_argument("--bid-amount", help="Valor do lance em centavos")
     p.add_argument("--bid-strategy", help="Estrategia de lance")
     p.add_argument("--start-time", help="Data/hora de inicio (ISO 8601)")

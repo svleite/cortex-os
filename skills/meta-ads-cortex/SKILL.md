@@ -249,7 +249,7 @@ O Claude DEVE seguir estas regras ao executar operacoes:
 3. **Confirmar antes de ativar** -- perguntar antes de mudar status para ACTIVE
 4. **Ativar TODOS os niveis** -- ao ativar uma campanha, SEMPRE ativar tambem todos os ad sets e ads dentro dela. Nunca ativar so a campanha e esquecer os niveis abaixo. Ordem: campaign → adsets → ads
 5. **Respeitar rate limits** -- o SDK ja inclui delays entre operacoes de escrita (1s). Se receber erro de rate limit (codigos 17, 32, 80004), aguardar 60 segundos antes de tentar novamente
-6. **Orcamento com cuidado** -- ao alterar daily_budget ou lifetime_budget, confirmar o valor com o usuario. Valores sao em centavos (5000 = R$50,00)
+6. **Orcamento passa pela trava** -- todo comando que cria, altera ou duplica orcamento mostra o antes e o depois em reais e so aplica com `--confirmar`. Sem `--confirmar` e so previa. Aumento acima de 50% (1,5x) ou acima de `teto_diario_reais` da conta no contas.yaml e BLOQUEADO; so liberar com `--acima-do-limite --confirmar` depois de o usuario aprovar o valor exato. Valores em centavos (5000 = R$50,00). Cada mudanca aplicada fica em `logs/orcamento.jsonl`.
 7. **Nunca hardcodar tokens** -- sempre usar a env var META_ADS_TOKEN
 8. **Nunca assumir origem de dados** -- ao mostrar insights no nivel da conta, SEMPRE quebrar por campanha antes de atribuir resultados a uma campanha especifica. Nunca dizer "esse gasto e da campanha X" sem ter confirmado com insights por campanha
 

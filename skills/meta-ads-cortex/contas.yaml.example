@@ -24,6 +24,7 @@ clientes:
   # meu-cliente:
   #   nome: "Nome do Cliente"
   #   conta_anuncio: "act_XXXXXXXXX"
+  #   teto_diario_reais: 300      # opcional: trava de orcamento diario (ver SKILL.md)
   #   pagina_facebook: "XXXXXXXXX"
   #   instagram_id: "XXXXXXXXX"
   #   instagram_username: "@username"

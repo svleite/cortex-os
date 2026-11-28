@@ -205,7 +205,7 @@ O Claude DEVE seguir estas regras ao executar operacoes:
 3. **Confirmar antes de ativar** — perguntar antes de mudar status para ENABLED
 4. **Ativar TODOS os niveis** — ao ativar uma campanha, SEMPRE ativar tambem todos os ad groups e ads dentro dela. Ordem: campaign -> ad groups -> ads
 5. **Respeitar rate limits** — se receber erro de rate limit (RESOURCE_EXHAUSTED), aguardar 60 segundos antes de tentar novamente
-6. **Orcamento com cuidado** — ao alterar budget, confirmar o valor com o usuario. Valores sao em micros (5000000 = R$5,00) mas os scripts ja convertem
+6. **Orcamento passa pela trava** -- todo comando que cria, altera ou duplica orcamento mostra o antes e o depois em reais e so aplica com `--confirmar`. Sem `--confirmar` e so previa. Aumento acima de 50% (1,5x) ou acima de `teto_diario_reais` da conta no contas.yaml e BLOQUEADO; so liberar com `--acima-do-limite --confirmar` depois de o usuario aprovar o valor exato. Valores em centavos (5000 = R$50,00); o script converte para micros. Cada mudanca aplicada fica em `logs/orcamento.jsonl`.
 7. **Nunca hardcodar tokens** — sempre usar env vars ou google-ads.yaml
 8. **Nunca assumir origem de dados** — ao mostrar insights no nivel da conta, SEMPRE quebrar por campanha antes de atribuir resultados a uma campanha especifica
 9. **cost_micros** — todos os scripts convertem automaticamente cost_micros / 1_000_000 para reais na saida
