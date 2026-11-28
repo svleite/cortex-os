@@ -12,6 +12,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from lib import orcamento
 from lib import (
     init_client,
     resolve_customer_id,
@@ -35,6 +36,9 @@ def cmd_campaign(args):
 
     campaign_service = client.get_service("CampaignService")
     campaign_budget_service = client.get_service("CampaignBudgetService")
+
+    orcamento.checar(args, f"nova campanha '{args.name}' ({args.type}, PAUSED)",
+                     {"daily_budget": (None, int(args.budget))}, conta_id=customer_id)
 
     # 1. Create budget
     budget_operation = client.get_type("CampaignBudgetOperation")
@@ -392,6 +396,7 @@ def build_parser():
     p.add_argument("--name", required=True, help="Campaign name")
     p.add_argument("--type", default="SEARCH", help="Type: SEARCH, DISPLAY, PMAX (default: SEARCH)")
     p.add_argument("--budget", required=True, help="Daily budget in centavos (5000 = R$50)")
+    orcamento.add_args(p)
     p.add_argument("--target-cpa", help="Target CPA in reais (ex: 25.00)")
     p.add_argument("--maximize-conversions", action="store_true", help="Use maximize conversions bidding")
     p.set_defaults(func=cmd_campaign)

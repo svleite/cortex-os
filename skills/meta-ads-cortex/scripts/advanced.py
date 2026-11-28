@@ -14,6 +14,7 @@ import argparse
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import orcamento
 from lib import (
     init_api, resolve_account, print_json, handle_fb_error,
     print_error, parse_json_arg, add_account_arg, safe_delay,
@@ -223,6 +224,11 @@ def cmd_duplicate_adset(args):
         if field in data and data[field] is not None:
             params[field] = data[field]
 
+    if any(k in params for k in ('daily_budget', 'lifetime_budget')):
+        moeda = account.api_get(fields=['currency']).get('currency', 'BRL')
+        orcamento.checar(args, f"cópia do conjunto {args.id} ('{params['name']}', PAUSED)",
+                         {k: (None, params[k]) for k in ('daily_budget', 'lifetime_budget') if k in params},
+                         conta_id=account_id, moeda=moeda)
     new_adset = account.create_ad_set(params=params)
     safe_delay(1)
 
@@ -267,6 +273,18 @@ def cmd_duplicate_campaign(args):
         if field in data and data[field] is not None:
             params[field] = data[field]
 
+    campos = {k: (None, params[k]) for k in ('daily_budget', 'lifetime_budget', 'spend_cap') if k in params}
+    if args.deep:
+        # Orçamento dos conjuntos também é copiado: soma entra na prévia.
+        soma = sum(int(a.get('daily_budget') or 0) for a in campaign.get_ad_sets(
+            fields=['daily_budget'], params={"effective_status": ["ACTIVE", "PAUSED"]}))
+        if soma:
+            campos['daily_budget'] = (None, int(campos.get('daily_budget', (None, 0))[1]) + soma)
+    if campos:
+        moeda = account.api_get(fields=['currency']).get('currency', 'BRL')
+        orcamento.checar(args, f"cópia da campanha {args.id} ('{params['name']}', PAUSED"
+                               f"{', com conjuntos' if args.deep else ''})",
+                         campos, conta_id=account_id, moeda=moeda)
     new_campaign = account.create_campaign(params=params)
     new_campaign_id = new_campaign["id"]
     safe_delay(1)
@@ -366,12 +384,14 @@ def main():
     p.add_argument("--id", required=True, help="ID do ad set original")
     p.add_argument("--campaign", help="ID da campanha destino (padrao: mesma do original)")
     p.add_argument("--name", help="Nome do novo ad set")
+    orcamento.add_args(p)
 
     # duplicate-campaign
     p = sub.add_parser("duplicate-campaign", help="Duplica uma campanha")
     p.add_argument("--id", required=True, help="ID da campanha original")
     p.add_argument("--name", help="Nome da nova campanha")
     p.add_argument("--deep", action="store_true", help="Duplicar tambem ad sets e ads")
+    orcamento.add_args(p)
 
     args = parser.parse_args()
 

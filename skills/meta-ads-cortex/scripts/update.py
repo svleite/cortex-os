@@ -4,6 +4,7 @@ Meta Ads Córtex - Atualizar objetos (campaigns, adsets, ads, audience users)
 """
 import os, sys, json, argparse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib import orcamento
 from lib import (init_api, resolve_account, print_json, handle_fb_error,
                  print_error, parse_fields, parse_json_arg, add_account_arg,
                  add_fields_arg, safe_delay)
@@ -48,6 +49,12 @@ def cmd_campaign(args):
         sys.exit(1)
 
     campaign = Campaign(args.id)
+    if any(k in params for k in ('daily_budget', 'lifetime_budget', 'spend_cap')):
+        atual = Campaign(args.id).api_get(fields=['name', 'account_id', 'daily_budget', 'lifetime_budget', 'spend_cap'])
+        moeda = AdAccount(f"act_{atual.get('account_id')}").api_get(fields=['currency']).get('currency', 'BRL')
+        orcamento.checar(args, f"campanha {args.id} ({atual.get('name')})",
+                         {k: (atual.get(k), params[k]) for k in ('daily_budget', 'lifetime_budget', 'spend_cap') if k in params},
+                         conta_id=atual.get('account_id'), moeda=moeda)
     campaign.api_update(params=params)
     safe_delay(1)
 
@@ -89,6 +96,12 @@ def cmd_adset(args):
         sys.exit(1)
 
     adset = AdSet(args.id)
+    if any(k in params for k in ('daily_budget', 'lifetime_budget')):
+        atual = AdSet(args.id).api_get(fields=['name', 'account_id', 'daily_budget', 'lifetime_budget'])
+        moeda = AdAccount(f"act_{atual.get('account_id')}").api_get(fields=['currency']).get('currency', 'BRL')
+        orcamento.checar(args, f"conjunto {args.id} ({atual.get('name')})",
+                         {k: (atual.get(k), params[k]) for k in ('daily_budget', 'lifetime_budget') if k in params},
+                         conta_id=atual.get('account_id'), moeda=moeda)
     adset.api_update(params=params)
     safe_delay(1)
 
@@ -165,6 +178,7 @@ def main():
     p.add_argument("--lifetime-budget", help="Orcamento vitalicio em centavos")
     p.add_argument("--bid-strategy", help="Estrategia de lance")
     p.add_argument("--spend-cap", help="Limite de gasto em centavos")
+    orcamento.add_args(p)
     p.add_argument("--start-time", help="Data/hora de inicio (ISO 8601)")
     p.add_argument("--stop-time", help="Data/hora de fim (ISO 8601)")
 
@@ -181,6 +195,7 @@ def main():
     p.add_argument("--optimization-goal", help="Goal de otimizacao")
     p.add_argument("--start-time", help="Data/hora de inicio (ISO 8601)")
     p.add_argument("--end-time", help="Data/hora de fim (ISO 8601)")
+    orcamento.add_args(p)
 
     # --- ad ---
     p = sub.add_parser("ad", help="Atualizar anuncio")

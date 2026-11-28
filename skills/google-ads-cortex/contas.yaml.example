@@ -5,5 +5,6 @@
 # clientes:
 #   - nome: "Nome do Cliente"
 #     customer_id: "1234567890"  # sem hifens
+#     teto_diario_reais: 300     # opcional: trava de orcamento diario (ver SKILL.md)
 #     notas: "Opcional — qualquer observacao"
 clientes:

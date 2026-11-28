@@ -13,3 +13,6 @@ node_modules/
 
 # dados de cliente (local, nunca versionar)
 contas.yaml
+
+# registro local de mudancas de orcamento (trava)
+logs/
